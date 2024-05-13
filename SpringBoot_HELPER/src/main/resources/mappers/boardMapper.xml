@@ -12,5 +12,22 @@
         SELECT * FROM mydb.board;
     </select>
 
+    <select id="searchBoard" parameterType="SearchCondition">
+    SELECT * FROM mydb.board
+    WHERE <trim prefixOverrides="AND">
+            <if test = "title != null;">
+                AND title LIKE concat('%', #{title}, '%')
+            </if>
+            <if test = "content != null">
+                AND content LIKE concat('%', #{content}, '%')
+            </if>
+    </trim>
+
+    <if test = "order != null">
+        ORDER BY ${order} ${direction}
+    </if>
+    </select>
+
+    
 
 </mapper>
