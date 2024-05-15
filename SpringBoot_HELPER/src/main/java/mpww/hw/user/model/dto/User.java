@@ -1,4 +1,4 @@
-package mpww.hw.member.model.dto;
+package mpww.hw.user.model.dto;
 
 public class User {
     private String id;
