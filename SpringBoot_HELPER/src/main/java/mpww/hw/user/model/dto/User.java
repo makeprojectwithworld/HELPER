@@ -10,8 +10,9 @@ public class User {
     private int helper_index;
     private boolean is_trainer;
     private int workout_grass;
+    private String accessToken;
 
-    public User(String id, String password, String nickname, String email, String sex, int trust_index, int helper_index, boolean is_trainer, int workout_grass) {
+    public User(String id, String password, String nickname, String email, String sex, int trust_index, int helper_index, boolean is_trainer, int workout_grass, String accessToken) {
         this.id = id;
         this.password = password;
         this.nickname = nickname;
@@ -21,6 +22,15 @@ public class User {
         this.helper_index = helper_index;
         this.is_trainer = is_trainer;
         this.workout_grass = workout_grass;
+        this.accessToken = accessToken;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
     }
 
     @Override
