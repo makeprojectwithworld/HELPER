@@ -3,7 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-pjt_schema.sql
+*.sql
 application.properties
 
 ### STS ###
