@@ -2,18 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- name space는 UserRepo의 fully qualified name으로 설정한다. -->
-<mapper namespace="mpww.hw.board.model.dao.BoardDao">
-    <insert id="insert" parameterType="Board">
-        INSERT INTO mydb.board(User_id, title, content,regist_date)
-        VALUES (#{User_id},#{title},#{content},#{regist_date});
+<mapper namespace="mpww.helper.domain.board.model.dao.BoardDao">
+    <insert id="writeBoard" parameterType="Board">
+        INSERT INTO helper.post(title, content, gym_seq)
+        VALUES (#{title},#{content}, #{gym_seq});
     </insert>
 
     <select id="selectAll">
-        SELECT * FROM mydb.board;
+        SELECT * FROM helper.post where gym_seq = #{gym_seq};
     </select>
 
     <select id="searchBoard" parameterType="SearchCondition">
-    SELECT * FROM mydb.board
+    SELECT * FROM helper.post
     WHERE <trim prefixOverrides="AND">
             <if test = "title != null;">
                 AND title LIKE concat('%', #{title}, '%')
@@ -22,6 +22,7 @@
                 AND content LIKE concat('%', #{content}, '%')
             </if>
     </trim>
+    AND gym_seq = #{gym_seq};
 
     <if test = "order != null">
         ORDER BY ${order} ${direction}
