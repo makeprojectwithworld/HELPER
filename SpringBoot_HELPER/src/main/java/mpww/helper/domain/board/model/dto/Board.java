@@ -3,44 +3,37 @@ package mpww.helper.domain.board.model.dto;
 import java.util.Date;
 
 public class Board {
-    private int boardId;
-    private String userId;
+    private int userSeq;
+    private int gymSeq;
+    private int Seq;
     private String title;
     private String content;
     private Date registDate;
     private int likes;
     private int viewCnt;
 
-    public int getboardId() {
-        return boardId;
+    public int getSeq() {
+        return Seq;
     }
 
-    public void setboardId(int board_Id) {
-        this.boardId = board_Id;
+    public void setSeq(int seq) {
+        Seq = seq;
     }
 
-    public String getUserId() {
-        return userId;
+    public int getUserSeq() {
+        return userSeq;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserSeq(int userSeq) {
+        this.userSeq = userSeq;
     }
 
-    public Date getRegistDate() {
-        return registDate;
+    public int getGymSeq() {
+        return gymSeq;
     }
 
-    public void setRegistDate(Date registDate) {
-        this.registDate = registDate;
-    }
-
-    public int getViewCnt() {
-        return viewCnt;
-    }
-
-    public void setViewCnt(int viewCnt) {
-        this.viewCnt = viewCnt;
+    public void setGymSeq(int gymSeq) {
+        this.gymSeq = gymSeq;
     }
 
     public String getTitle() {
@@ -59,8 +52,12 @@ public class Board {
         this.content = content;
     }
 
-    public Date getRegist_date() {
+    public Date getRegistDate() {
         return registDate;
+    }
+
+    public void setRegistDate(Date registDate) {
+        this.registDate = registDate;
     }
 
     public int getLikes() {
@@ -71,11 +68,11 @@ public class Board {
         this.likes = likes;
     }
 
-    public int getViewcnt() {
+    public int getViewCnt() {
         return viewCnt;
     }
 
-    public void setViewcnt(int viewcnt) {
-        this.viewCnt = viewcnt;
+    public void setViewCnt(int viewCnt) {
+        this.viewCnt = viewCnt;
     }
 }

@@ -6,22 +6,16 @@ public class User {
     private String nickname;
     private String email;
     private String sex;
-    private int trust_index;
     private int helper_index;
-    private boolean is_trainer;
     private int workout_grass;
     private String accessToken;
 
-    public User(String id, String password, String nickname, String email, String sex, int trust_index, int helper_index, boolean is_trainer, int workout_grass, String accessToken) {
+    public User(String id, String password, String nickname, String email, String sex, String accessToken) {
         this.id = id;
         this.password = password;
         this.nickname = nickname;
         this.email = email;
         this.sex = sex;
-        this.trust_index = trust_index;
-        this.helper_index = helper_index;
-        this.is_trainer = is_trainer;
-        this.workout_grass = workout_grass;
         this.accessToken = accessToken;
     }
 
@@ -41,9 +35,7 @@ public class User {
                 ", nickname='" + nickname + '\'' +
                 ", email='" + email + '\'' +
                 ", sex='" + sex + '\'' +
-                ", trust_index=" + trust_index +
                 ", helper_index=" + helper_index +
-                ", is_trainer=" + is_trainer +
                 ", workout_grass=" + workout_grass +
                 '}';
     }
@@ -88,13 +80,6 @@ public class User {
         this.sex = sex;
     }
 
-    public int getTrust_index() {
-        return trust_index;
-    }
-
-    public void setTrust_index(int trust_index) {
-        this.trust_index = trust_index;
-    }
 
     public int getHelper_index() {
         return helper_index;
@@ -104,13 +89,6 @@ public class User {
         this.helper_index = helper_index;
     }
 
-    public boolean isIs_trainer() {
-        return is_trainer;
-    }
-
-    public void setIs_trainer(boolean is_trainer) {
-        this.is_trainer = is_trainer;
-    }
 
     public int getWorkout_grass() {
         return workout_grass;

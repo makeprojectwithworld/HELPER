@@ -40,7 +40,7 @@ public class BoardController {
     @Operation(summary = "게시글 수정하기", description = "해당 게시글을 수정합니다")
     @PutMapping("/board/{id}")
     public ResponseEntity<?> update(@PathVariable int id, @RequestBody Board updatedBoard){
-        updatedBoard.setboardId(id);
+        updatedBoard.setSeq(id);
         int result  = boardService.updateBoard(updatedBoard);
         return new ResponseEntity<>(result,result ==1 ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
     }
