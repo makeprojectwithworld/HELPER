@@ -24,6 +24,7 @@ export const useCounterStore = defineStore('counter', () => {
 
       router.push({name: 'main'})
     .catch((e) => {
+      console.log("로그인 실패")
       alert(e)
     })
 
