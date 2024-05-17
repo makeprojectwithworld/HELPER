@@ -8,32 +8,48 @@
           name="username"
           type="text"
           placeholder="Email 또는 전화번호"
+          v-model.trim = "id"
         />
         <label>비밀번호</label>
         <input
           name="password"
           type="password"
           placeholder="비밀번호"
+          v-model.trim = "password"
         />
         <div class="login-forgot">
           <a class="login-forgot-link" href="#">비밀번호를 잊으셨나요?</a>
         </div>
-        <button>로그인</button>
+        <button @click = "login" >로그인</button>
         <div>
           <KaKaoLogin />
         </div>
         <div class="login-signup">
           회원이 아니신가요?
-          <a class="login-signup-link" href="#">가입하기</a>
+          <RouterLink :to="{name: 'signup'}" class="login-signup-link" >가입하기</RouterLink>
         </div>
-        
       </form>
     </div>
+
   </div>
+  
 </template>
 
 <script setup>
+  import { useCounterStore } from '@/stores/counter';
   import KaKaoLogin from './KaKaoLogin.vue';
+  import { RouterLink, RouterView } from 'vue-router';
+
+  import {ref} from 'vue';
+
+  const id = ref('');
+  const password = ref('');
+
+  const store = useCounterStore();
+
+  const login = () => {
+    store.userLogin(id.value, password.value)
+  }
 </script>
 
 <style scope>
