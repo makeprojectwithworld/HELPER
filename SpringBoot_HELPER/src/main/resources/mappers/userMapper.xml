@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- name space는 UserRepo의 fully qualified name으로 설정한다. -->
+<mapper namespace="mpww.helper.domain.user.model.dao.UserDao">
+    <insert id="signUp" parameterType="User">
+    INSERT INTO helper.user(id,password,nickname,email,gym_name,sex)
+    VALUES (#{id},#{password},#{nickname},#{email},#{gymName},#{sex})
+    </insert>
+
+    <select id="login" parameterType="User">
+        SELECT id, nickname, email
+        FROM user WHERE id = #{id} AND password = #{password}
+    </select>
+</mapper>

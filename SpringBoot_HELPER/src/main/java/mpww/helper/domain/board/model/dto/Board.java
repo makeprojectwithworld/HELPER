@@ -3,44 +3,37 @@ package mpww.helper.domain.board.model.dto;
 import java.util.Date;
 
 public class Board {
-    private int boardId;
-    private String userId;
+    private int seq;
     private String title;
     private String content;
     private Date registDate;
     private int likes;
     private int viewCnt;
+    private String userNickname;
+    private String gymName;
 
-    public int getboardId() {
-        return boardId;
+    public int getSeq() {
+        return seq;
     }
 
-    public void setboardId(int board_Id) {
-        this.boardId = board_Id;
+    public void setSeq(int seq) {
+        this.seq = seq;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUserNickname() {
+        return userNickname;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserNickname(String userNickname) {
+        this.userNickname = userNickname;
     }
 
-    public Date getRegistDate() {
-        return registDate;
+    public String getGymName() {
+        return gymName;
     }
 
-    public void setRegistDate(Date registDate) {
-        this.registDate = registDate;
-    }
-
-    public int getViewCnt() {
-        return viewCnt;
-    }
-
-    public void setViewCnt(int viewCnt) {
-        this.viewCnt = viewCnt;
+    public void setGymName(String gymName) {
+        this.gymName = gymName;
     }
 
     public String getTitle() {
@@ -59,8 +52,12 @@ public class Board {
         this.content = content;
     }
 
-    public Date getRegist_date() {
+    public Date getRegistDate() {
         return registDate;
+    }
+
+    public void setRegistDate(Date registDate) {
+        this.registDate = registDate;
     }
 
     public int getLikes() {
@@ -71,11 +68,11 @@ public class Board {
         this.likes = likes;
     }
 
-    public int getViewcnt() {
+    public int getViewCnt() {
         return viewCnt;
     }
 
-    public void setViewcnt(int viewcnt) {
-        this.viewCnt = viewcnt;
+    public void setViewCnt(int viewCnt) {
+        this.viewCnt = viewCnt;
     }
 }

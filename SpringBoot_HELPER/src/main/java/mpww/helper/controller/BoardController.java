@@ -20,10 +20,10 @@ public class BoardController {
     BoardService boardService;
 
 
-    @Operation(summary = "전체 게시글 조회", description = "전체 게시글을 조회합니다")
-    @GetMapping("/board")
-    public ResponseEntity<?> selectAll(){
-        List<Board> boardList = boardService.selectAll();
+    @Operation(summary = "해당 헬스장 전체 게시글 조회", description = " ㅇㅇ헬스장의 전체 게시글을 조회합니다")
+    @GetMapping("/board/{gymName}")
+    public ResponseEntity<?> selectAll(@PathVariable String gymName){
+        List<Board> boardList = boardService.selectAll(gymName);
 
         if(!boardList.isEmpty()){
             return ResponseEntity.ok(boardList);
@@ -40,7 +40,7 @@ public class BoardController {
     @Operation(summary = "게시글 수정하기", description = "해당 게시글을 수정합니다")
     @PutMapping("/board/{id}")
     public ResponseEntity<?> update(@PathVariable int id, @RequestBody Board updatedBoard){
-        updatedBoard.setboardId(id);
+        updatedBoard.setSeq(id);
         int result  = boardService.updateBoard(updatedBoard);
         return new ResponseEntity<>(result,result ==1 ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
     }

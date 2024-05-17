@@ -2,11 +2,12 @@ package mpww.helper.domain.board.model.dao;
 
 import mpww.helper.domain.board.model.dto.Board;
 import mpww.helper.domain.board.model.dto.SearchCondition;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 public interface BoardDao {
-    List<Board> selectAll();
+    List<Board> selectAll(String gymName);
 
     int writeBoard(Board board);
 

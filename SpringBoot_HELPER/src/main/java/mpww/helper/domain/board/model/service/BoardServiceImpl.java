@@ -19,19 +19,14 @@ public class BoardServiceImpl implements  BoardService {
         this.boardDao = boardDao;
     }
 
-    public BoardDao getBoardDao() {
-        return this.boardDao;
-    }
-
-
     @Override
     public int removeBoard(int id) {
         return boardDao.deleteBoard(id);
     }
 
     @Override
-    public List<Board> selectAll() {
-        return boardDao.selectAll();
+    public List<Board> selectAll(String gymName) {
+        return boardDao.selectAll(gymName);
     }
 
     @Override
