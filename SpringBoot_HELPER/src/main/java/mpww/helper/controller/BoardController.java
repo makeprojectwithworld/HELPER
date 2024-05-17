@@ -20,10 +20,10 @@ public class BoardController {
     BoardService boardService;
 
 
-    @Operation(summary = "전체 게시글 조회", description = "전체 게시글을 조회합니다")
-    @GetMapping("/board")
-    public ResponseEntity<?> selectAll(){
-        List<Board> boardList = boardService.selectAll();
+    @Operation(summary = "해당 헬스장 전체 게시글 조회", description = " ㅇㅇ헬스장의 전체 게시글을 조회합니다")
+    @GetMapping("/board/{gymName}")
+    public ResponseEntity<?> selectAll(@PathVariable String gymName){
+        List<Board> boardList = boardService.selectAll(gymName);
 
         if(!boardList.isEmpty()){
             return ResponseEntity.ok(boardList);

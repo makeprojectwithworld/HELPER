@@ -6,17 +6,34 @@ public class User {
     private String nickname;
     private String email;
     private String sex;
-    private int helper_index;
-    private int workout_grass;
+    private int helperIndex;
     private String accessToken;
+    private String gymName;
 
-    public User(String id, String password, String nickname, String email, String sex, String accessToken) {
+    public int getHelperIndex() {
+        return helperIndex;
+    }
+
+    public void setHelperIndex(int helperIndex) {
+        this.helperIndex = helperIndex;
+    }
+
+    public String getGymName() {
+        return gymName;
+    }
+
+    public void setGymName(String gymName) {
+        this.gymName = gymName;
+    }
+
+    public User(String id, String password, String nickname, String email, String sex, int helperIndex, String gymName) {
         this.id = id;
         this.password = password;
         this.nickname = nickname;
         this.email = email;
         this.sex = sex;
-        this.accessToken = accessToken;
+        this.helperIndex = helperIndex;
+        this.gymName = gymName;
     }
 
     public String getAccessToken() {
@@ -35,10 +52,9 @@ public class User {
                 ", nickname='" + nickname + '\'' +
                 ", email='" + email + '\'' +
                 ", sex='" + sex + '\'' +
-                ", helper_index=" + helper_index +
-                ", workout_grass=" + workout_grass +
                 '}';
     }
+
 
     public String getId() {
         return id;
@@ -81,20 +97,4 @@ public class User {
     }
 
 
-    public int getHelper_index() {
-        return helper_index;
-    }
-
-    public void setHelper_index(int helper_index) {
-        this.helper_index = helper_index;
-    }
-
-
-    public int getWorkout_grass() {
-        return workout_grass;
-    }
-
-    public void setWorkout_grass(int workout_grass) {
-        this.workout_grass = workout_grass;
-    }
 }

@@ -3,37 +3,37 @@ package mpww.helper.domain.board.model.dto;
 import java.util.Date;
 
 public class Board {
-    private int userSeq;
-    private int gymSeq;
-    private int Seq;
+    private int seq;
     private String title;
     private String content;
     private Date registDate;
     private int likes;
     private int viewCnt;
+    private String userNickname;
+    private String gymName;
 
     public int getSeq() {
-        return Seq;
+        return seq;
     }
 
     public void setSeq(int seq) {
-        Seq = seq;
+        this.seq = seq;
     }
 
-    public int getUserSeq() {
-        return userSeq;
+    public String getUserNickname() {
+        return userNickname;
     }
 
-    public void setUserSeq(int userSeq) {
-        this.userSeq = userSeq;
+    public void setUserNickname(String userNickname) {
+        this.userNickname = userNickname;
     }
 
-    public int getGymSeq() {
-        return gymSeq;
+    public String getGymName() {
+        return gymName;
     }
 
-    public void setGymSeq(int gymSeq) {
-        this.gymSeq = gymSeq;
+    public void setGymName(String gymName) {
+        this.gymName = gymName;
     }
 
     public String getTitle() {

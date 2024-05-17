@@ -30,8 +30,8 @@ public class BoardServiceImpl implements  BoardService {
     }
 
     @Override
-    public List<Board> selectAll() {
-        return boardDao.selectAll();
+    public List<Board> selectAll(String gymName) {
+        return boardDao.selectAll(gymName);
     }
 
     @Override
