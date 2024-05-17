@@ -5,7 +5,7 @@
 <mapper namespace="mpww.helper.domain.user.model.dao.UserDao">
     <insert id="signUp" parameterType="User">
     INSERT INTO helper.user(id,password,nickname,email,gym_name,sex)
-    VALUES (#{id},#{password},#{nickname},#{email},#{gym_name},#{sex})
+    VALUES (#{id},#{password},#{nickname},#{email},#{gymName},#{sex})
     </insert>
 
     <select id="login" parameterType="User">
