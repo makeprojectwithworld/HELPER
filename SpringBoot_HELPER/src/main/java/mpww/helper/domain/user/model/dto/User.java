@@ -1,10 +1,12 @@
 package mpww.helper.domain.user.model.dto;
 
+
 public class User {
     private String id;
     private String password;
     private String nickname;
     private String email;
+    private String birthDate;
     private String sex;
     private int helperIndex;
     private String accessToken;
@@ -26,15 +28,19 @@ public class User {
         this.gymName = gymName;
     }
 
-    public User(String id, String password, String nickname, String email, String sex, int helperIndex, String gymName) {
+    public String getBirthdate() {
+        return birthDate;
+    }
+
+    public void setBirthdate(String birthdate) {
+        this.birthDate = birthdate;
+    }
+
+    public User(String id, String password) {
         this.id = id;
         this.password = password;
-        this.nickname = nickname;
-        this.email = email;
-        this.sex = sex;
-        this.helperIndex = helperIndex;
-        this.gymName = gymName;
     }
+    public User() { }
 
     public String getAccessToken() {
         return accessToken;

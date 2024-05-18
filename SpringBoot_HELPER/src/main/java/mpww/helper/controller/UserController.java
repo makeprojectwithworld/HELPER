@@ -29,13 +29,13 @@ public class UserController {
         User loginUser = userService.login(user);
 
         if(loginUser != null){
-            String token = jwt.createToken(user.getId());
+//            String token = jwt.createToken(user.getId());
             Map<String, Object> map = new HashMap<>();
-            map.put("access-token",token);
-            map.put("user", user);
+//            map.put("access-token",token);
+            map.put("user", loginUser);
             return new ResponseEntity<Map<String,Object>>(map, HttpStatus.OK);
         }
-        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
     }
 
     @PostMapping("/signup")
@@ -46,6 +46,5 @@ public class UserController {
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
-
 
 }
