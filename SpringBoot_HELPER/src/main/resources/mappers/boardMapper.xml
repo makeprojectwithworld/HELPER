@@ -14,7 +14,7 @@
         SELECT * FROM helper.board where gym_name = #{gymName};
     </select>
 
-    <delete id="removeBoard" parameterType="id">
+    <delete id="removeBoard" parameterType="Board">
         DELETE  FROM helper.board WHERE seq = #{seq}
     </delete>
 
