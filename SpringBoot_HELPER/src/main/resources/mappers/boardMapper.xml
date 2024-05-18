@@ -10,9 +10,13 @@
         VALUES (#{title},#{content}, #{userNickname}, #{gymName}, #{registDate});
     </insert>
 
-    <select id="selectAll" parameterType="String">
+    <select id="selectAll" >
         SELECT * FROM helper.board where gym_name = #{gymName};
     </select>
+
+    <delete id="removeBoard" parameterType="id">
+        DELETE  FROM helper.board WHERE seq = #{seq}
+    </delete>
 
     <select id="searchBoard" parameterType="SearchCondition">
     SELECT * FROM helper.post
@@ -24,7 +28,7 @@
                 AND content LIKE concat('%', #{content}, '%')
             </if>
     </trim>
-    AND gym_seq = #{gym_seq};
+    AND gym_name = #{gymName};
 
     <if test = "order != null">
         ORDER BY ${order} ${direction}
