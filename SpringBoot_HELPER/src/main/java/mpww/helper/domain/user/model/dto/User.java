@@ -11,6 +11,8 @@ public class User {
     private int helperIndex;
     private String accessToken;
     private String gymName;
+    private String refreshToken;
+
 
     public int getHelperIndex() {
         return helperIndex;
@@ -40,7 +42,22 @@ public class User {
         this.id = id;
         this.password = password;
     }
-    public User() { }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getRefreshToken() {
+        return refreshToken;
+    }
+
+    public void setRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
+    }
 
     public String getAccessToken() {
         return accessToken;
@@ -48,17 +65,6 @@ public class User {
 
     public void setAccessToken(String accessToken) {
         this.accessToken = accessToken;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id='" + id + '\'' +
-                ", password='" + password + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", email='" + email + '\'' +
-                ", sex='" + sex + '\'' +
-                '}';
     }
 
 

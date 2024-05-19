@@ -5,7 +5,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import mpww.helper.domain.board.model.dto.Board;
 import mpww.helper.domain.board.model.service.BoardService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,8 +15,12 @@ import java.util.List;
 @RequestMapping("/boardapi")
 @CrossOrigin(origins = "*")
 public class BoardController {
-    @Autowired
-    BoardService boardService;
+
+    private final BoardService boardService;
+
+    public BoardController(BoardService boardService) {
+        this.boardService = boardService;
+    }
 
 
     @Operation(summary = "해당 헬스장 전체 게시글 조회", description = " ㅇㅇ헬스장의 전체 게시글을 조회합니다")
