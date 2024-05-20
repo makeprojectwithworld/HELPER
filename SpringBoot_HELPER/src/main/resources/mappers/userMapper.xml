@@ -24,7 +24,7 @@
         WHERE email = #{email}
     </select>
 
-    <insert id="saveCertificationInfo">
+    <insert id="saveCertificationInfo" parameterType="CertificationInfo">
         INSERT INTO certification_info (user_id, email, certification_number)
         VALUES (#{id}, #{email}, #{certificationNumber})
     </insert>
