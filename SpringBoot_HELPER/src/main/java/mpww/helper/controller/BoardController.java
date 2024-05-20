@@ -3,9 +3,9 @@ package mpww.helper.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import mpww.helper.domain.board.model.dto.Board;
-import mpww.helper.domain.board.model.service.BoardService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.Getter;
+import mpww.helper.domain.board.post.model.dto.Board;
+import mpww.helper.domain.board.post.model.service.BoardService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,20 +16,35 @@ import java.util.List;
 @RequestMapping("/boardapi")
 @CrossOrigin(origins = "*")
 public class BoardController {
-    @Autowired
-    BoardService boardService;
+
+    private final BoardService boardService;
+
+    public BoardController(BoardService boardService) {
+        this.boardService = boardService;
+    }
 
 
     @Operation(summary = "해당 헬스장 전체 게시글 조회", description = " ㅇㅇ헬스장의 전체 게시글을 조회합니다")
-    @GetMapping("/board/{gymName}")
-    public ResponseEntity<?> selectAll(@PathVariable String gymName){
-        List<Board> boardList = boardService.selectAll(gymName);
+    @GetMapping("/board")
+    public ResponseEntity<?> selectAll(){
+        List<Board> boardList = boardService.selectAll();
 
         if(!boardList.isEmpty()){
             return ResponseEntity.ok(boardList);
         }
         return ResponseEntity.noContent().build();
     }
+    @Operation(summary = "게시글 상세 보기", description = "선택한 게시글을 확인합니다")
+    @GetMapping("/board/{id}")
+    public ResponseEntity<?> selectOne(@PathVariable int id){
+        Board board = boardService.getBoard(id);
+        if(board != null){
+            return ResponseEntity.ok(board);
+        }
+        return ResponseEntity.noContent().build();
+    }
+
+
     @Operation(summary = "게시글 삭제하기", description = "해당 게시글을 삭제합니다")
     @DeleteMapping("/board/{id}")
     public ResponseEntity<?> remove(@PathVariable int id){
@@ -46,7 +61,7 @@ public class BoardController {
     }
 
     @Operation(summary = "게시글 작성하기", description = "새로운 게시글을 작성합니다")
-    @PostMapping("")
+    @PostMapping("/board")
     public ResponseEntity<?> create(@RequestBody Board board){
         int result = boardService.writeBoard(board);
 
