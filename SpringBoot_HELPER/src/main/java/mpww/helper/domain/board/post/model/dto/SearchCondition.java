@@ -1,4 +1,4 @@
-package mpww.helper.domain.board.model.dto;
+package mpww.helper.domain.board.post.model.dto;
 
 public class SearchCondition {
     private String gymName;

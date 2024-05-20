@@ -1,9 +1,8 @@
-package mpww.helper.domain.board.model.service;
+package mpww.helper.domain.board.post.model.service;
 
 
-import mpww.helper.domain.board.model.dto.Board;
-import mpww.helper.domain.board.model.dto.SearchCondition;
-import org.springframework.stereotype.Service;
+import mpww.helper.domain.board.post.model.dto.Board;
+import mpww.helper.domain.board.post.model.dto.SearchCondition;
 
 import java.util.List;
 public interface BoardService {

@@ -1,23 +1,23 @@
-package mpww.helper.domain.board.model.service;
+package mpww.helper.domain.board.post.model.service;
 
 
-import mpww.helper.domain.board.model.dao.BoardDao;
-import mpww.helper.domain.board.model.dto.Board;
-import mpww.helper.domain.board.model.dto.SearchCondition;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import mpww.helper.domain.board.post.model.dao.BoardDao;
+import mpww.helper.domain.board.post.model.dto.Board;
+import mpww.helper.domain.board.post.model.dto.SearchCondition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class BoardServiceImpl implements  BoardService {
 
-    private BoardDao boardDao;
+    private final BoardDao boardDao;
 
-    @Autowired
-    public void setBoardRepo(BoardDao boardDao) {
-        this.boardDao = boardDao;
-    }
+
 
     @Override
     public int removeBoard(int id) {

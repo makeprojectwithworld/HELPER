@@ -12,4 +12,9 @@
         SELECT id, nickname
         FROM user WHERE id = #{id} AND password = #{password}
     </select>
+
+    <select id="existsByUserId" parameterType="String" resultType="boolean">
+        SELECT CASE WHEN (SELECT COUNT(*) FROM user WHERE id = #{id}) > 0
+                        THEN TRUE ELSE FALSE END AS user_exists;
+    </select>
 </mapper>

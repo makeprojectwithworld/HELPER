@@ -10,4 +10,5 @@ public interface UserDao {
 
     User login(User user);
 
+    boolean existsByUserId(String userId);
 }

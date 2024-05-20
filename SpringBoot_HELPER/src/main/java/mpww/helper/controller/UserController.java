@@ -1,6 +1,8 @@
 package mpww.helper.controller;
 
 
+import mpww.helper.domain.user.common.request.auth.IdCheckRequestDto;
+import mpww.helper.domain.user.common.response.auth.IdCheckResponseDto;
 import mpww.helper.domain.user.model.dto.User;
 import mpww.helper.domain.user.model.service.UserService;
 import mpww.helper.global.util.JwtUtil;
@@ -45,6 +47,14 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
+    @PostMapping("/id-check")
+    public ResponseEntity<? super IdCheckResponseDto> idCheck(
+            @RequestBody IdCheckRequestDto requestBody){
+
+        ResponseEntity<? super IdCheckResponseDto> response = userService.idCheck(requestBody);
+        return response;
     }
 
 }

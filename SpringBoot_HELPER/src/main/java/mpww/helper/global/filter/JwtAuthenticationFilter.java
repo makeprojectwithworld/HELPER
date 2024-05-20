@@ -6,16 +6,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import mpww.helper.domain.user.model.dao.UserDao;
-import mpww.helper.domain.user.model.dto.User;
 import mpww.helper.global.util.JwtUtil;
-import org.apache.catalina.util.StringUtil;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -37,12 +34,16 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
             try {
 
+
+                //토큰이 있는 지 검사
                 String token = parseBearerToken(request);
                 if(token == null){
                     filterChain.doFilter(request,response);
                     return;
                 }
 
+
+                //유효성 검사
                 String userId = String.valueOf(jwtUtil.validate(token));
 
                 if(userId == null){
@@ -50,15 +51,32 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     return;
                 }
 
+                /*
+                GrantedAuthority 사용자의 권한을 나타내는 Spring Security
+
+                SecurityContext 현재 인증된 사용자 정보를 저장하는 컨테이너
+                userId를 사용자 이름, 패스워드는 null, authorities 리스트를 통한 권한 설정
+
+
+                접근 주체에 정보를 서블릿에 넘겨줘야하는데, 바로 넘길 수 없음
+                context를 하나 만든다. 유저 정보에 대한 security 정보를 context에 만들고
+                context에 넣어준다.
+                 */
                 List<GrantedAuthority> authorities = new ArrayList<>();
-                authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+                authorities.add(new SimpleGrantedAuthority("ROLE_USER")); //ROLE_USER, ROLE_ADMIN
 
-
+                //empty context 만들기
                 SecurityContext securityContext = SecurityContextHolder.createEmptyContext();
+                //토큰 만들고 접근주체에 대한 정보를 넘기고 비밀번호 null, 인증 권한 추가로 넘기기
                 AbstractAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userId, null, authorities);
 
                 authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+
+                //SecurityContext에 생성한 토큰을 등록
+                securityContext.setAuthentication(authenticationToken);
+                //현재 사용자가 인증되었음을 확인 만든 context 등록
                 SecurityContextHolder.setContext(securityContext);
+
 
             }catch (Exception e){
                 e.printStackTrace();
@@ -67,7 +85,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
 
     /*
-    request 객체로부터 token을 가져오는 메서드
+    Http의 request의 헤더로부터 authorization을 가져오고 이를 "Bearer "뒤 토큰으로 가져오는 메서드
 
      */
     private String parseBearerToken(HttpServletRequest request) {

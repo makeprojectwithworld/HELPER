@@ -3,8 +3,8 @@ package mpww.helper.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import mpww.helper.domain.board.model.dto.Board;
-import mpww.helper.domain.board.model.service.BoardService;
+import mpww.helper.domain.board.post.model.dto.Board;
+import mpww.helper.domain.board.post.model.service.BoardService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
