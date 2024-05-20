@@ -1,7 +1,9 @@
 package mpww.helper.controller;
 
 
+import mpww.helper.domain.user.common.request.auth.EmailCertificationRequestDto;
 import mpww.helper.domain.user.common.request.auth.IdCheckRequestDto;
+import mpww.helper.domain.user.common.response.auth.EmailCertificationResponseDto;
 import mpww.helper.domain.user.common.response.auth.IdCheckResponseDto;
 import mpww.helper.domain.user.model.dto.User;
 import mpww.helper.domain.user.model.service.UserService;
@@ -55,6 +57,15 @@ public class UserController {
 
         ResponseEntity<? super IdCheckResponseDto> response = userService.idCheck(requestBody);
         return response;
+    }
+
+    @PostMapping("/email-cerification")
+    public ResponseEntity<? super EmailCertificationResponseDto> emailCertification(
+            @RequestBody EmailCertificationRequestDto requestBody){
+
+        ResponseEntity<? super EmailCertificationResponseDto> responseDto = userService.emailCertification(requestBody);
+
+        return responseDto;
     }
 
 }

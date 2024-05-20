@@ -17,4 +17,15 @@
         SELECT CASE WHEN (SELECT COUNT(*) FROM user WHERE id = #{id}) > 0
                         THEN TRUE ELSE FALSE END AS user_exists;
     </select>
+
+    <select id="existsByEmail" parameterType="String" resultType="boolean">
+        SELECT COUNT(*) > 0
+        FROM user
+        WHERE email = #{email}
+    </select>
+
+    <insert id="saveCertificationInfo">
+        INSERT INTO certification_info (user_id, email, certification_number)
+        VALUES (#{id}, #{email}, #{certificationNumber})
+    </insert>
 </mapper>
