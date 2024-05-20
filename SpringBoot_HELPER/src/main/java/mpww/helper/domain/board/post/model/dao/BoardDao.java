@@ -8,13 +8,15 @@ import java.util.List;
 
 @Component
 public interface BoardDao {
-    List<Board> selectAll(String gymName);
+    List<Board> selectAll();
 
     int writeBoard(Board board);
 
     List<Board> searchByCondition(SearchCondition con);
 
-    int deleteBoard(int id);
+    int deleteBoard(int seq);
 
     int updateBoard(Board updateBoard);
+
+    Board selectBoard(int seq);
 }

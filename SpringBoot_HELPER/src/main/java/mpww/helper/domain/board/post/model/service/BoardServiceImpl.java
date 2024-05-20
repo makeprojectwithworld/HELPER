@@ -25,8 +25,8 @@ public class BoardServiceImpl implements  BoardService {
     }
 
     @Override
-    public List<Board> selectAll(String gymName) {
-        return boardDao.selectAll(gymName);
+    public List<Board> selectAll() {
+        return boardDao.selectAll();
     }
 
     @Override
@@ -42,6 +42,11 @@ public class BoardServiceImpl implements  BoardService {
     @Override
     public int writeBoard(Board board) {
         return boardDao.writeBoard(board);
+    }
+
+    @Override
+    public Board getBoard(int seq) {
+        return boardDao.selectBoard(seq);
     }
 
 

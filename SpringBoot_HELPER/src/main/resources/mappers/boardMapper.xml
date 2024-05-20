@@ -11,10 +11,10 @@
     </insert>
 
     <select id="selectAll" >
-        SELECT * FROM helper.board where gym_name = #{gymName};
+        SELECT * FROM helper.board
     </select>
 
-    <delete id="removeBoard" parameterType="Board">
+    <delete id="deleteBoard" parameterType="int">
         DELETE  FROM helper.board WHERE seq = #{seq}
     </delete>
 
@@ -33,6 +33,15 @@
     <if test = "order != null">
         ORDER BY ${order} ${direction}
     </if>
+    </select>
+    
+    <update id="updateBoard" parameterType="Board">
+        UPDATE board SET content = #{content}
+        WHERE seq = #{seq}
+    </update>
+
+    <select id="selectBoard" parameterType="int">
+        SELECT * from board WHERE seq = #{seq}
     </select>
 
     
