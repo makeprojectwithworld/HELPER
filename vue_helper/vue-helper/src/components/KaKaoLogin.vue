@@ -6,12 +6,16 @@
           width="170" 
           alt="카카오 로그인 버튼"
         />
+        <NaverLogin />
       </a>
+      
       <!-- <div @click="kakaoLogout()">로그아웃</div> -->
     </div>
   </template>
   
   <script>
+  import NaverLogin from './NaverLogin.vue';
+
   export default {
     methods: {
       kakaoLogin() {

@@ -23,7 +23,9 @@
         <button @click = "login" >로그인</button>
         <div>
           <KaKaoLogin />
+          <NaverLogin />
         </div>
+        
         <div class="login-signup">
           회원이 아니신가요?
           <RouterLink :to="{name: 'signup'}" class="login-signup-link" >가입하기</RouterLink>
@@ -41,6 +43,7 @@
   import { RouterLink, RouterView } from 'vue-router';
 
   import {ref} from 'vue';
+import NaverLogin from './NaverLogin.vue';
 
   const id = ref('');
   const password = ref('');
