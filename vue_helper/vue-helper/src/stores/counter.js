@@ -12,24 +12,25 @@ export const useCounterStore = defineStore('counter', () => {
     })
     .then((res) => {
       console.log("로그인 성공")
-      console.log(res.data["access-token"])
-      sessionStorage.setItem('access-token',res.data["access-token"])
+      alert("로그인 성공")
+      console.log(res.data)
+      // sessionStorage.setItem('access-token',res.data["access-token"])
       
 
-      accessToken.value = res.data["access-token"]
-      const token = res.data['access-token'].split('.')
-      let id = JSON.parse(atob(token[1]))['id']
+      // accessToken.value = res.data["access-token"]
+      // const token = res.data['access-token'].split('.')
+      // let id = JSON.parse(atob(token[1]))['id']
 
       loginUserId.value = id;
-
       router.push({name: 'main'})
+      
+    }
+  )
     .catch((e) => {
       console.log("로그인 실패")
       alert(e)
     })
-
-
-    })
+    
   
   }
   return{
