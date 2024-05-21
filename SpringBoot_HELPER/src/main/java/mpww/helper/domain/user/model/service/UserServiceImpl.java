@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public int signUp(SignUpRequest signUpRequest) {
         CertificationInfo certificationInfo = signUpRequest.getCertificationInfo();
-        
+
         boolean isVerified = userDao.emailVerificationCodeIsTrue(certificationInfo);
 
         if(!isVerified) return 0;
