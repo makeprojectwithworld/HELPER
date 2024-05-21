@@ -2,9 +2,11 @@ package mpww.helper.domain.user.model.service;
 
 import lombok.AllArgsConstructor;
 import mpww.helper.domain.user.common.CertificationNumber;
+import mpww.helper.domain.user.common.request.auth.CheckCertificationRequestDto;
 import mpww.helper.domain.user.common.request.auth.EmailCertificationRequestDto;
 import mpww.helper.domain.user.common.request.auth.IdCheckRequestDto;
 import mpww.helper.domain.user.common.response.ResponseDto;
+import mpww.helper.domain.user.common.response.auth.CheckCertificationResponseDto;
 import mpww.helper.domain.user.common.response.auth.EmailCertificationResponseDto;
 import mpww.helper.domain.user.common.response.auth.IdCheckResponseDto;
 import mpww.helper.domain.user.model.dao.UserDao;
@@ -92,7 +94,25 @@ public class UserServiceImpl implements UserService{
         return EmailCertificationResponseDto.success();
     }
 
+    @Override
+    public ResponseEntity<? super CheckCertificationResponseDto> checkCertification(CheckCertificationRequestDto dto) {
+        try{
 
+            String userId = dto.getId();
+            String email = dto.getEmail();
+            String certificationNumber = dto.getCertificationNumber();
+
+            CertificationInfo userInfo = new CertificationInfo(userId,email,certificationNumber);
+
+            userDao.emailVerificationCodeIsTrue(userInfo);
+
+
+        } catch (Exception e){
+            e.printStackTrace();
+            return ResponseDto.databaseError();
+        }
+        return CheckCertificationResponseDto.success();
+    }
 
 
 }

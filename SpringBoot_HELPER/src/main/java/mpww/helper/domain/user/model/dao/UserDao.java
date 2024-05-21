@@ -16,4 +16,6 @@ public interface UserDao {
     void saveCertificationInfo(CertificationInfo info);
 
     boolean existsByEmail(String email);
+
+    boolean emailVerificationCodeIsTrue(CertificationInfo info);
 }
