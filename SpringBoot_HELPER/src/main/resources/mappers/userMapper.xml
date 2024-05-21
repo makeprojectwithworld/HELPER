@@ -28,4 +28,16 @@
         INSERT INTO certification_info (user_id, email, certification_number)
         VALUES (#{id}, #{email}, #{certificationNumber})
     </insert>
+
+    <select id="emailVerificationCodeIsTrue" parameterType="CertificationInfo" resultType="boolean">
+         SELECT CASE WHEN (SELECT COUNT(*) FROM certification_info
+                           WHERE email = #{email} AND user_id = #{id} AND certification_number = #{certificationNumber} ) >0
+         THEN TRUE ELSE FALSE END
+    </select>
+
+    <insert id="snsLogin" parameterType="SocialUser">
+        INSERT INTO social_user(id,password,nickname,email)
+        VALUES (#{id},#{password},#{nickName},#{email})
+
+    </insert>
 </mapper>

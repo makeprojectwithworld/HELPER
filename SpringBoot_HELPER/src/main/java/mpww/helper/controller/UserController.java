@@ -3,10 +3,14 @@ package mpww.helper.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import mpww.helper.domain.user.common.request.auth.CheckCertificationRequestDto;
 import mpww.helper.domain.user.common.request.auth.EmailCertificationRequestDto;
 import mpww.helper.domain.user.common.request.auth.IdCheckRequestDto;
+import mpww.helper.domain.user.common.request.auth.SignUpRequest;
+import mpww.helper.domain.user.common.response.auth.CheckCertificationResponseDto;
 import mpww.helper.domain.user.common.response.auth.EmailCertificationResponseDto;
 import mpww.helper.domain.user.common.response.auth.IdCheckResponseDto;
+import mpww.helper.domain.user.model.dto.CertificationInfo;
 import mpww.helper.domain.user.model.dto.User;
 import mpww.helper.domain.user.model.service.UserService;
 import mpww.helper.global.util.JwtUtil;
@@ -48,8 +52,9 @@ public class UserController {
 
     @Operation(summary = "회원가입 기능", description = "새로운 회원을 등록합니다")
     @PostMapping("/signup")
-    public ResponseEntity<?> signUp(@RequestBody User user){
-        int result = userService.signUp(user);
+    public ResponseEntity<?> signUp(@RequestBody SignUpRequest signUpRequest){
+
+        int result = userService.signUp(signUpRequest);
         if(result == 1){
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
@@ -65,14 +70,20 @@ public class UserController {
         return response;
     }
 
-    @Operation(summary = "이메일 인증", description = "입력된 이메일로 인증 정보를 부여합니다.")
-    @PostMapping("/email-cerification")
+    @Operation(summary = "인증메일 전송 ", description = "입력된 이메일로 인증 정보를 전달합니다.")
+    @PostMapping("/send-email-cerification")
     public ResponseEntity<? super EmailCertificationResponseDto> emailCertification(
             @RequestBody EmailCertificationRequestDto requestBody){
 
-        ResponseEntity<? super EmailCertificationResponseDto> responseDto = userService.emailCertification(requestBody);
+        return userService.emailCertification(requestBody);
+    }
 
-        return responseDto;
+    @Operation(summary = "이메일 인증 확인", description = "입력된 인증번호가 일치하는 지 확인합니다")
+    @PostMapping("/verify-email-certification")
+    public ResponseEntity<? super CheckCertificationResponseDto> checkVerfication(
+            @RequestBody CheckCertificationRequestDto requestBody){
+
+        return userService.checkCertification(requestBody);
     }
 
 }
