@@ -3,6 +3,7 @@ import HelperMain from '../views/HelperMain.vue'
 import HelperHome from '../views/HelperHome.vue'
 import HelperLogin from '@/components/HelperLogin.vue'
 import HelperSignUp from '@/components/HelperSignUp.vue'
+import HelperPostDetail from '@/components/HelperPostDetail.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: '/signup',
       name: 'signup',
       component: HelperSignUp
+    },
+    {
+      path: '/detail',
+      name: 'detail',
+      component: HelperPostDetail
     }
   ]
 })

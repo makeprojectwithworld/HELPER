@@ -29,7 +29,7 @@
       <div class="statistics">
         <div class="info__item">
           <div class="stat-icon">
-            <img src="@/assets/main_people.png" alt="HELPER 인원">
+            <img src="@/assets/HelperMain_Img/main_people.png" alt="HELPER 인원">
           </div>
           <div class="stat-info">
             <div class="stat-title">HELPER 인원</div>
@@ -39,7 +39,7 @@
         </div>
         <div class="info__item">
           <div class="stat-icon">
-            <img src="@/assets/main_place.png" alt="제휴 헬스장">
+            <img src="@/assets/HelperMain_Img/main_place.png" alt="제휴 헬스장">
           </div>
           <div class="stat-info">
             <div class="stat-title">제휴 헬스장</div>
@@ -48,7 +48,7 @@
         </div>
         <div class="info__item">
           <div class="stat-icon">
-            <img src="@/assets/main_help.png" alt="성사된 도움">
+            <img src="@/assets/HelperMain_Img/main_help.png" alt="성사된 도움">
           </div>
           <div class="stat-info">
             <div class="stat-title">성사된 도움</div>
@@ -57,7 +57,7 @@
         </div>
         <div class="info__item">
           <div class="stat-icon">
-            <img src="@/assets/main_post.png" alt="작성된 게시물">
+            <img src="@/assets/HelperMain_Img/main_post.png" alt="작성된 게시물">
           </div>
           <div class="stat-info">
             <div class="stat-title">작성된 게시물</div>
