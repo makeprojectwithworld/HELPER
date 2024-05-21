@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import mpww.helper.domain.user.common.request.auth.CheckCertificationRequestDto;
 import mpww.helper.domain.user.common.request.auth.EmailCertificationRequestDto;
 import mpww.helper.domain.user.common.request.auth.IdCheckRequestDto;
+import mpww.helper.domain.user.common.request.auth.SignUpRequest;
 import mpww.helper.domain.user.common.response.auth.CheckCertificationResponseDto;
 import mpww.helper.domain.user.common.response.auth.EmailCertificationResponseDto;
 import mpww.helper.domain.user.common.response.auth.IdCheckResponseDto;
@@ -51,8 +52,9 @@ public class UserController {
 
     @Operation(summary = "회원가입 기능", description = "새로운 회원을 등록합니다")
     @PostMapping("/signup")
-    public ResponseEntity<?> signUp(@RequestBody User user){
-        int result = userService.signUp(user);
+    public ResponseEntity<?> signUp(@RequestBody SignUpRequest signUpRequest){
+
+        int result = userService.signUp(signUpRequest);
         if(result == 1){
             return new ResponseEntity<>(HttpStatus.CREATED);
         }

@@ -5,6 +5,7 @@ import mpww.helper.domain.user.common.CertificationNumber;
 import mpww.helper.domain.user.common.request.auth.CheckCertificationRequestDto;
 import mpww.helper.domain.user.common.request.auth.EmailCertificationRequestDto;
 import mpww.helper.domain.user.common.request.auth.IdCheckRequestDto;
+import mpww.helper.domain.user.common.request.auth.SignUpRequest;
 import mpww.helper.domain.user.common.response.ResponseDto;
 import mpww.helper.domain.user.common.response.auth.CheckCertificationResponseDto;
 import mpww.helper.domain.user.common.response.auth.EmailCertificationResponseDto;
@@ -30,8 +31,14 @@ public class UserServiceImpl implements UserService{
 
     @Transactional
     @Override
-    public int signUp(User user) {
-        return userDao.signUp(user);
+    public int signUp(SignUpRequest signUpRequest) {
+        CertificationInfo certificationInfo = signUpRequest.getCertificationInfo();
+        
+        boolean isVerified = userDao.emailVerificationCodeIsTrue(certificationInfo);
+
+        if(!isVerified) return 0;
+
+        return userDao.signUp(signUpRequest);
     }
 
     @Override
