@@ -18,17 +18,21 @@
 
     <div class="main-content">
       <HelperPostList :searchQuery="searchQuery" />
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
+import { RouterLink, RouterView } from 'vue-router';
 import HelperPostList from '@/components/HelperPostList.vue';
+import HelperPostDetail from '@/components/HelperPostDetail.vue';
 
 export default {
   name: 'Home',
   components: {
-    HelperPostList
+    HelperPostList,
+    HelperPostDetail
   },
   data() {
     return {
