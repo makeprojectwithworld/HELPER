@@ -9,6 +9,7 @@ import mpww.helper.global.handler.OAuth2SuccessHandler;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
@@ -52,7 +53,7 @@ public class SecurityConfig {
                         .requestMatchers("/","/**", "/oauth2/**").permitAll()
                         .requestMatchers("/boardapi/**").hasRole("USER")
                         .requestMatchers("/commentapi/**").hasRole("USER")
-                        .requestMatchers("/userapi/**").hasRole("USER")
+//                        .requestMatchers("/userapi/**").hasRole("USER")
                         .anyRequest().authenticated()
                 )
                 .oauth2Login(oauth2 -> oauth2
@@ -73,11 +74,11 @@ public class SecurityConfig {
 
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.addAllowedOrigin("*"); //모든 출처에 대해서 허용
-        corsConfiguration.addAllowedHeader("*"); //메서드
+        corsConfiguration.addAllowedMethod("*"); //메서드
         corsConfiguration.addAllowedHeader("*"); //모든 헤더에 대해서
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("*", corsConfiguration);
+        source.registerCorsConfiguration("/**", corsConfiguration);
 
         return source;
     }

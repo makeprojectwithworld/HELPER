@@ -6,7 +6,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import mpww.helper.domain.board.comment.model.dto.CommentDto;
 import mpww.helper.domain.board.comment.model.service.CommentService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +15,7 @@ import java.util.List;
 @RequestMapping("/commentapi")
 @RestController
 @AllArgsConstructor
+@CrossOrigin("*")
 public class CommentController {
 
     private final CommentService commentService;

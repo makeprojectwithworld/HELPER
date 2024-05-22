@@ -1,30 +1,65 @@
 <template>
   <div class="body-container">
     <div class="signup-container">
-      <form class="signup">
+      <div class="signup">
         <h1 class="singup-title"><span class="logo">HELPER</span> 회원가입</h1>
         <label>아이디</label>
         <input
           name="user-name"
           type="text"
-          placeholder="Email"
+          placeholder="아이디를 입력하세요"
+          v-model.trim="id"
         />
+        <button type="button" class="id-verify-btn" @click="checkIdIsDuplicated">아이디 중복 체크</button>
+        
         <label>비밀번호</label>
         <input
           name="password"
           type="password"
           placeholder="비밀번호"
+          v-model.trim="password"
         />
+        <label>이메일</label>
+        <div class="email-container">
+          <input 
+          name="email" 
+          type="email" 
+          placeholder="이메일을 입력하세요" 
+          class="email-input"
+          v-model.trim="email" />
+          <button type="button" class="email-send-btn" @click="sendEmailVerificationCode">이메일 인증코드 발송</button>
+        </div>
+        <div class="email-verify-container">
+          <input 
+          name="email-code" 
+          type="text" 
+          placeholder="인증코드 입력" 
+          class="email-code-input"
+          v-model.trim="verificationCodeNumber" />
+          <button type="button" class="email-verify-btn" @click="verifyNumberCode">인증코드 확인</button>
+        </div>
         <label>생년월일</label>
         <input
           name="user-birth"
           type="text"
           placeholder="생년월일 8자리"
+          v-model.trim="birthdate"
+        />
+        <label>닉네임</label>
+        <input
+          name="user-nickname"
+          type="text"
+          placeholder="닉네임"
+          v-model.trim="nickName"
         />
         <label for="dropdown">성별</label>
-        <select id="dropdown" name="user-sex" class="dropdown-sex">
-          <option value="option1">남자</option>
-          <option value="option2">여자</option>
+        <select 
+          id="dropdown"
+          name="user-sex"
+          class="dropdown-sex"
+          v-model.trim="sex">
+          <option value="남자">남자</option>
+          <option value="여자">여자</option>
         </select>
         <!-- <label>별명</label>
         <input
@@ -33,21 +68,57 @@
           placeholder="별명"
         /> -->
         <label for="dropdown">헬스장</label>
-        <select id="dropdown" name="user-gym" class="dropdown-gym">
-          <option value="option1">바이젝월드스튜디오</option> <!-- -> 헬스장으로 될 수 있도록 v-for 사용 필요!!! -->
-          <option value="option2">여자</option>
+        <select 
+        id="dropdown" 
+        name="user-gym" 
+        class="dropdown-gym"
+        v-model.trim="gymName"
+        >
+          <option value="바이젝월드스튜디오">바이젝월드스튜디오</option> <!-- -> 헬스장으로 될 수 있도록 v-for 사용 필요!!! -->
+          <option value="여자">여자</option>
         </select>
         <div class="button-container">
-          <button class="button-cancel">취소</button>
-          <button class="button-register">등록</button>
+          <RouterLink :to="{name: 'main'}" class="button-cancel" >취소</RouterLink>
+          <button class="button-register" @click="signUpHelper">등록</button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
+  import { useCounterStore } from '@/stores/counter';
   import KaKaoLogin from './KaKaoLogin.vue';
+  import{ref} from 'vue';
+  import { RouterLink } from 'vue-router';
+
+  const store = useCounterStore();
+
+
+  const id = ref('');
+  const password = ref('');
+  const email = ref('');
+  const verificationCodeNumber = ref('');
+  const birthdate = ref('');
+  const sex = ref('');
+  const gymName = ref('');
+  const nickName = ref('');
+
+  const signUpHelper = () => {
+    store.signUpHelper(id.value,password.value,email.value,birthdate.value,nickName.value,sex.value,gymName.value,verificationCodeNumber.value)
+  }
+
+  const checkIdIsDuplicated = () => {
+    store.checkIdIsDuplicated(id.value)
+  }
+
+  const sendEmailVerificationCode = () => {
+    store.sendEmailVerificationCode(id.value,email.value)
+  }
+
+  const verifyNumberCode = () => {
+    store.verfiyNumberCode(id.value,email.value,verificationCodeNumber.value);
+  }
 </script>
 
 <style scope>
@@ -56,6 +127,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow-y: auto; /* 화면이 짤리지 않도록 스크롤바 추가 */
   }
 
   html {
@@ -80,43 +152,50 @@
     padding: 16px 24px;
     width: 100%;
   }
-
-  .button-container {
-    display: flex;
-    width: 100%; /* 컨테이너 너비를 최대로 설정 */
+  .email-verify-btn{
+    width: 80%;
+  }
+  .email-send-btn{
+    width: 80%;
+  }
+  .id-verify-btn{
+    width: 80%;
   }
 
-  .button-cancel, .button-register {
-    flex: 1; /* 사용 가능한 공간을 균등하게 나눔 */
-    width: auto; /* 기존의 width: 40% 제거하거나 이를 덮어씀 */
-  }
+/* 버튼 공통 스타일 */
+button, .button-cancel, .button-register {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 24px auto;
+  padding: 16px;
+  width: calc(50% - 5px); /* 버튼을 반반 나누고, 사이 간격을 고려해 조정 */
+  display: inline-block; /* 인라인 블록 요소로 설정하여 옆으로 배치 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+  border-radius: 10px; /* 모서리 둥글게 */
+}
 
-  /* 선택적: 버튼 사이의 간격을 주기 위해 */
-  .button-cancel {
-    margin-right: 10px; /* 오른쪽 버튼과의 간격 */
-  }
+/* 등록 버튼 특화 스타일 */
+.button-register {
+  background-color: #2c2c2c;
+  border: none;
+  color: #ffffff;
+}
 
-  button {
-    font-size: 18px;
-    font-weight: 700;
-    margin: 24px auto;
-    padding: 16px;
-    width: 40%;
-  }
+/* 취소 버튼 특화 스타일 */
+.button-cancel {
+  background-color: white;
+  border: 1px solid #d1d1d1;
+  color: black;
+  text-decoration: none; /* 링크의 밑줄 등 제거 */
+  display: inline-flex; /* 인라인 플렉스로 설정하여 내부 텍스트를 가운데 정렬 */
+  justify-content: center; /* 가로 내용 가운데 정렬 */
+  align-items: center; /* 세로 내용 가운데 정렬 */
+}
 
-  .button-register {
-    background-color: #2c2c2c;
-    border: none;
-    color: #ffffff;
-  }
+/* 선택적: 버튼 사이 간격을 추가할 필요가 없어짐 */
 
-  .button-cancel {
-    background-color: white;
-    border: 1px solid #d1d1d1;
-    color: black;
-  }
 
-  * {
+  *{
     box-sizing: border-box;
     border-radius: 10px;
   }

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public interface UserDao {
 
-    int signUp(SignUpRequest signUpRequest);
+    int signUp(User user);
 
     User login(User user);
 

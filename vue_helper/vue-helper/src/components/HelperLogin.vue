@@ -1,7 +1,7 @@
 <template>
   <div class="body-container">
     <div class="login-container">
-      <form class="login">
+      <div class="login">
         <h1 class="login-title"><span class="logo">HELPER</span> 로그인</h1>
         <label>아이디</label>
         <input
@@ -23,14 +23,13 @@
         <button @click = "login" >로그인</button>
         <div>
           <KaKaoLogin />
-          <NaverLogin />
         </div>
         
         <div class="login-signup">
           회원이 아니신가요?
           <RouterLink :to="{name: 'signup'}" class="login-signup-link" >가입하기</RouterLink>
         </div>
-      </form>
+      </div>
     </div>
 
   </div>
