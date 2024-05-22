@@ -12,8 +12,8 @@
         <h3>헬스장 둘러보기</h3>
         <input type="text" v-model="search" placeholder="헬스장 검색" @input="filterList" />
         <ul>
-          <li v-for="gym in filteredgyms" :key="gym.name">
-            {{ gym.name }}
+          <li v-for="gym in store.gymList" :key="gym.name">
+            <RouterLink :to="`/home/${gym.domainName}`">{{ gym.name }}</RouterLink>
           </li>
         </ul>
       </div>
@@ -69,44 +69,19 @@
   </div>
 </template>
   
-<script>
+<script setup>
   import { RouterLink, RouterView } from 'vue-router';
-  import axios from 'axios';
+  import { onMounted } from 'vue';
+  import { useGymStore } from '@/stores/gym';
 
-  export default {
-    name: 'HelperMain',
-    data() {
-      return {
-        search: '',
-        gyms: [],
-        filteredgyms: []
-      };
-    },
-    // mounted() {
-    //   this.fetchgyms();
-    // },
-    // methods: {
-    //   login() {
-    //   },
-    //   signup() {
-    //   },
-    //   fetchgyms() {
-    //     axios.get('http://localhost:8080')
-    //       .then(response => {
-    //         this.gyms = response.data;
-    //         this.filteredgyms = this.gyms;
-    //       })
-    //       .catch(error => {
-    //         console.error(error);
-    //       });
-    //   },
-    //   filterList() {
-    //     this.filteredgyms = this.gyms.filter(gym =>
-    //       gym.name.includes(this.search)
-    //     );
-    //   }
-    // }
-  };
+
+
+  const store = useGymStore()
+
+  onMounted(() =>{
+    store.getGymList()
+  })
+
 </script>
   
 <style scoped>

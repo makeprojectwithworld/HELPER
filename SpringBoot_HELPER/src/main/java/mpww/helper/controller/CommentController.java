@@ -21,7 +21,7 @@ public class CommentController {
     private final CommentService commentService;
 
     @Operation(summary = "댓글 작성", description = "게시글에 댓글을 작성합니다")
-    @PostMapping("comment/add")
+    @PostMapping("/comment/add")
    public ResponseEntity<?> addComment(CommentDto comment) {
        int result = commentService.addComment(comment);
        if (result == 1) {

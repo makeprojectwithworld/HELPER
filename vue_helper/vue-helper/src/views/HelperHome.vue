@@ -5,7 +5,7 @@
         <span>HELPER</span>
       </div>
       <nav class="nav-links">
-        <span class="gym">바이젝 월드 스튜디오</span>
+        <span class="gym">{{ gym.name }}</span>
         <a href="#" class="nav-link">자유</a>
         <a href="#" class="nav-link">보조</a>
         <a href="#" class="nav-link">내 정보</a>
@@ -24,23 +24,15 @@
 
 <script>
 import HelperPostList from '@/components/HelperPostList.vue';
+import { useGymStore } from '@/stores/gym';
+import { onMounted } from 'vue';
 
-export default {
-  name: 'Home',
-  components: {
-    HelperPostList
-  },
-  data() {
-    return {
-      searchQuery: ''
-    };
-  },
-  methods: {
-    onSearch() {
-      // Handle the search logic here if needed
-    }
-  }
-}
+
+
+const store = useGymStore()
+onMounted(() =>{
+  
+})
 </script>
 
 <style scoped>
