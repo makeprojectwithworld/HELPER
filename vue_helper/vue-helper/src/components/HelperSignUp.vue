@@ -42,7 +42,7 @@
         <input
           name="user-birth"
           type="text"
-          placeholder="생년월일 8자리"
+          placeholder="생년-월-일 형식으로 입력하세요"
           v-model.trim="birthdate"
         />
         <label>닉네임</label>
