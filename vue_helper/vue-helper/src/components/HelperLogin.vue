@@ -41,7 +41,6 @@
   import KaKaoLogin from './KaKaoLogin.vue';
   import { RouterLink, RouterView } from 'vue-router';
   import {ref} from 'vue';
-  import NaverLogin from './NaverLogin.vue';
 
   const id = ref('');
   const password = ref('');

@@ -5,7 +5,7 @@
         <span>HELPER</span>
       </div>
       <nav class="nav-links">
-        <span class="gym">{{ gym.name }}</span>
+        <span class="gym"> 바이젝월드스튜디오</span>
         <a href="#" class="nav-link">자유</a>
         <a href="#" class="nav-link">보조</a>
         <a href="#" class="nav-link">내 정보</a>
@@ -24,17 +24,11 @@
 </template>
 
 <script>
-import { RouterLink, RouterView } from 'vue-router';
+import { RouterLink, RouterView, useRoute } from 'vue-router';
 import HelperPostList from '@/components/HelperPostList.vue';
-import { useGymStore } from '@/stores/gym';
-import { onMounted } from 'vue';
 
 
 
-const store = useGymStore()
-onMounted(() =>{
-  
-})
 </script>
 
 <style scoped>
