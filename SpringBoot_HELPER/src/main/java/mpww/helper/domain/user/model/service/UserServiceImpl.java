@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService{
     public User login(User user) {
         User loginUser = userDao.login(user);
         if(loginUser != null) {
-            loginUser.setAccessToken(jwtUtil.createToken(loginUser.getId()));
+            loginUser.setAccessToken(jwtUtil.createToken(loginUser.getId(),loginUser.getGymName()));
 
         }
         return loginUser;

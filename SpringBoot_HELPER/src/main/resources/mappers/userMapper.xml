@@ -9,7 +9,7 @@
     </insert>
 
     <select id="login" parameterType="User" resultType="User">
-        SELECT id, nickname
+        SELECT id, nickname, gym_name
         FROM user WHERE id = #{id} AND password = #{password}
     </select>
 

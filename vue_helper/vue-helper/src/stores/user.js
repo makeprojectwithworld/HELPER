@@ -22,7 +22,7 @@ export const useCounterStore = defineStore('counter', () => {
        // 응답 데이터 구조 확인
        if (res.data && res.data.user && res.data.user.accessToken) {
         const token = res.data.user.accessToken
-        sessionStorage.setItem('accessToken', token)
+        sessionStorage.setItem('access-token', token)
 
         accessToken.value = token
         const tokenParts = token.split('.')
@@ -44,7 +44,6 @@ export const useCounterStore = defineStore('counter', () => {
     })
     
   }
-
 
 
     const sendEmailVerificationCode = function (id,email) {
