@@ -18,11 +18,13 @@
 
     <div class="main-content">
       <HelperPostList :searchQuery="searchQuery" />
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
+import { RouterLink, RouterView } from 'vue-router';
 import HelperPostList from '@/components/HelperPostList.vue';
 import { useGymStore } from '@/stores/gym';
 import { onMounted } from 'vue';

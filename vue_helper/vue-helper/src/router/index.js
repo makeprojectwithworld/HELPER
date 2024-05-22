@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HelperMain from '../views/HelperMain.vue'
 import HelperHome from '../views/HelperHome.vue'
+import HelperMyPage from '../views/HelperMyPage.vue'
 import HelperLogin from '@/components/HelperLogin.vue'
 import HelperSignUp from '@/components/HelperSignUp.vue'
 import HelperPostDetail from '@/components/HelperPostDetail.vue'
+import HelperPostWrite from '@/components/HelperPostWrite.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,7 +18,14 @@ const router = createRouter({
     {
       path: '/home',
       name: 'home',
-      component: HelperHome
+      component: HelperHome,
+      children: [
+        {
+          path: 'detail',
+          name: 'detail',
+          component: HelperPostDetail
+        }
+      ]
     },
     {
       path: '/login',
@@ -29,9 +38,15 @@ const router = createRouter({
       component: HelperSignUp
     },
     {
-      path: '/detail',
-      name: 'detail',
-      component: HelperPostDetail
+      path: '/mypage',
+      name: 'mypage',
+      component: HelperMyPage
+    },
+    ,
+    {
+      path: '/postwrite',
+      name: 'postwrite',
+      component: HelperPostWrite
     }
   ]
 })
