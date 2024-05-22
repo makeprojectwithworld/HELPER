@@ -87,7 +87,7 @@
 </template>
 
 <script setup>
-  import { useCounterStore } from '@/stores/counter';
+  import { useCounterStore } from '@/stores/user';
   import KaKaoLogin from './KaKaoLogin.vue';
   import{ref} from 'vue';
   import { RouterLink } from 'vue-router';
