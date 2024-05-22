@@ -82,30 +82,30 @@
         filteredgyms: []
       };
     },
-    mounted() {
-      this.fetchgyms();
-    },
-    methods: {
-      login() {
-      },
-      signup() {
-      },
-      fetchgyms() {
-        axios.get('http://localhost:8080')
-          .then(response => {
-            this.gyms = response.data;
-            this.filteredgyms = this.gyms;
-          })
-          .catch(error => {
-            console.error(error);
-          });
-      },
-      filterList() {
-        this.filteredgyms = this.gyms.filter(gym =>
-          gym.name.includes(this.search)
-        );
-      }
-    }
+    // mounted() {
+    //   this.fetchgyms();
+    // },
+    // methods: {
+    //   login() {
+    //   },
+    //   signup() {
+    //   },
+    //   fetchgyms() {
+    //     axios.get('http://localhost:8080')
+    //       .then(response => {
+    //         this.gyms = response.data;
+    //         this.filteredgyms = this.gyms;
+    //       })
+    //       .catch(error => {
+    //         console.error(error);
+    //       });
+    //   },
+    //   filterList() {
+    //     this.filteredgyms = this.gyms.filter(gym =>
+    //       gym.name.includes(this.search)
+    //     );
+    //   }
+    // }
   };
 </script>
   

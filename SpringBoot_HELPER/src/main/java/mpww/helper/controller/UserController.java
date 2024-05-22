@@ -24,7 +24,7 @@ import java.util.Map;
 @Tag(name = "User", description = "회원 관리")
 @RestController
 @RequestMapping("/userapi")
-
+@CrossOrigin("*")
 public class UserController {
 
     private final JwtUtil jwt;
@@ -53,7 +53,6 @@ public class UserController {
     @Operation(summary = "회원가입 기능", description = "새로운 회원을 등록합니다")
     @PostMapping("/signup")
     public ResponseEntity<?> signUp(@RequestBody SignUpRequest signUpRequest){
-
         int result = userService.signUp(signUpRequest);
         if(result == 1){
             return new ResponseEntity<>(HttpStatus.CREATED);

@@ -1,5 +1,6 @@
 package mpww.helper.domain.user.model.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,9 +9,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class User {
+    @NotBlank
     private String id;
+
     private String password;
     private String nickname;
+    @NotBlank
     private String email;
     private String birthDate;
     private String sex;

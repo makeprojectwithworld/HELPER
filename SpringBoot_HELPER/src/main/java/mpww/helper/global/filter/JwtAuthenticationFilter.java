@@ -41,7 +41,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     return;
                 }
 
-
                 //유효성 검사
                 String userId = String.valueOf(jwtUtil.validate(token));
 

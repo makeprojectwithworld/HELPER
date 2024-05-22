@@ -7,11 +7,14 @@
           alt="카카오 로그인 버튼"
         />
       </a>
+      
       <!-- <div @click="kakaoLogout()">로그아웃</div> -->
     </div>
   </template>
   
   <script>
+
+
   export default {
     methods: {
       kakaoLogin() {
