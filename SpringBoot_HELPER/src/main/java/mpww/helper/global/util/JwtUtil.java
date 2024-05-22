@@ -36,6 +36,14 @@ public class JwtUtil {
 
         return Jwts.parser().verifyWith(secretKey).build().parseSignedClaims(token);
     }
+    // Token에서 gymName 추출
+    public String getGymNameFromToken(String token) {
+        Jws<Claims> claims = Jwts.parser()
+                .setSigningKey(secretKey)
+                .build()
+                .parseClaimsJws(token);
+        return claims.getBody().get("gymName", String.class);
+    }
 
 
 }

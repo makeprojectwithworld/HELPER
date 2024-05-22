@@ -45,7 +45,6 @@ export const useCounterStore = defineStore('counter', () => {
     
   }
 
-
     const sendEmailVerificationCode = function (id,email) {
       axios.post(`${REST_API}/send-email-cerification`,{
         id: id,
@@ -125,6 +124,7 @@ export const useCounterStore = defineStore('counter', () => {
       })
       
     }
+   
 
   
   return{

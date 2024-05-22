@@ -74,8 +74,6 @@
   import { onMounted } from 'vue';
   import { useGymStore } from '@/stores/gym';
 
-
-
   const store = useGymStore()
 
   onMounted(() =>{
