@@ -1,9 +1,6 @@
 <template>
+  <HelperHeader/>
   <div class="my-page">
-    <div class="logo">
-      <RouterLink :to="{ name: 'home' }" class="gohome"><span class="highlight-text">HELPER</span></RouterLink>
-    </div>
-
     <div class="profile-header">
       <div class="profile-info">
         <h1>{{ user.nickname }}</h1>
@@ -55,13 +52,15 @@
 </template>
 
 <script>
+import HelperHeader from '@/components/HelperHeader.vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import * as d3 from 'd3';
 
 export default {
   name: 'HelperMyPage',
   components: {
-    FontAwesomeIcon
+    FontAwesomeIcon,
+    HelperHeader
   },
   data() {
     return {
@@ -155,7 +154,7 @@ export default {
 
 <style scoped>
 .my-page {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 20px auto;
   padding: 20px;
   background: white;

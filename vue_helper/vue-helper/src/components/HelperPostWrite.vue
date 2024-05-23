@@ -1,4 +1,5 @@
 <template>
+  <HelperHeader/>
   <div class="post-form">
     <div class="form-group">
       <label for="title">제목</label>
@@ -21,8 +22,13 @@
 </template>
 
 <script>
+import HelperHeader from '@/components/HelperHeader.vue';
+
 export default {
   name: 'PostForm',
+  components: {
+    HelperHeader
+  },
   data() {
     return {
       form: {
@@ -43,7 +49,7 @@ export default {
 
 <style scoped>
 .post-form {
-  max-width: 600px;
+  max-width: 1200px;
   margin: 20px auto;
   padding: 20px;
   border: 1px solid #ddd;

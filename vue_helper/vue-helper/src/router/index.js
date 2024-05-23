@@ -18,14 +18,12 @@ const router = createRouter({
     {
       path: '/home',
       name: 'home',
-      component: HelperHome,
-      children: [
-        {
-          path: 'detail',
-          name: 'detail',
-          component: HelperPostDetail
-        }
-      ]
+      component: HelperHome
+    },
+    {
+      path: '/detail',
+      name: 'detail',
+      component: HelperPostDetail
     },
     {
       path: '/login',
