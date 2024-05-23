@@ -11,13 +11,13 @@
       <p>{{ store.post.content }}</p>
     </div>
     <div class="post-reactions">
-      <span class="reaction" @click="toggleLikePost">
+      <!-- <span class="reaction" @click="toggleLikePost"> -->
         <font-awesome-icon icon="thumbs-up" />
         <span class="icon-text"> {{ store.post.likes }} </span>
-      </span>
-      <span v-if="likedPostByUser" class="reaction cancel-like">
-        <span @click="toggleLikePost" class="cancel-text">좋아요 취소</span>
-      </span>
+      
+      <!-- <span v-if="likedPostByUser" class="reaction cancel-like"> -->
+        <!-- <span @click="toggleLikePost" class="cancel-text">좋아요 취소</span> -->
+      
       <span class="reaction">
         <font-awesome-icon icon="comment" />
         <!-- <span class="icon-text"> {{ store.post.comments.length }} </span> -->
@@ -27,21 +27,21 @@
       <!-- <h2>댓글 {{ post.comments.length }}</h2> -->
       <div class="comment-input">
         <font-awesome-icon icon="camera" />
-        <input type="text" placeholder="댓글을 남겨주세요."  @keyup.enter="addComment" />
+        <input type="text" placeholder="댓글을 남겨주세요." v-model="content" @keyup.enter ="addComment" />
       </div>
       <div class="comments-list">
-        <!-- <div class="comment" v-for="comment in post.comments" :key="comment.id"> -->
+        <div class="comment" v-for="comment in store.commentList" :key="comment.id">
           <div class="comment-meta">
-            <!-- <span class="comment-author">{{ comment.author }}</span> -->
-            <!-- <span class="comment-date">{{ comment.date }}</span> -->
+            <span class="comment-author">{{ comment.userNickname }}</span>
+            <span class="comment-date">{{ comment.registDate }}</span>
           </div>
           <div class="comment-content">
-            <!-- <p>{{ comment.content }}</p> -->
+            <p>{{ comment.content }}</p>
           </div>
+        
           <div class="comment-actions">
-            <!-- <span class="comment-like" @click="toggleLikeComment(comment)"> -->
               <font-awesome-icon icon="thumbs-up" />
-              <!-- <span class="icon-text"> {{ comment.likes }} </span> -->
+              <span class="icon-text"> {{ comment.likes }} </span>
           
             <!-- <span v-if="likedCommentByUser(comment)" class="reaction cancel-like"> -->
               <!-- <span @click="cancelLikeComment(comment)" class="cancel-text">좋아요 취소</span> -->
@@ -49,21 +49,29 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script setup>
 import { useBoardStore } from '@/stores/board';
 import { onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-
+import { ref } from 'vue';
 
 const store = useBoardStore()
 
 const route = useRoute();
 const router = useRouter();
+const content = ref('')
+
 onMounted(() =>{
   store.selectBoard(route.params.seq)
+  store.loadAllcomment(route.params.seq)
 })
+
+const addComment = () => {
+  store.addComment(route.params.seq,content.value)
+}
 
 </script>
 

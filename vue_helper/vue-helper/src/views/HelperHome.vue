@@ -1,8 +1,7 @@
 <template>
   <HelperHeader />
   <HelperPostList />
-
-  
+  <RouterView/>
 </template>
 
 <script setup>
@@ -10,6 +9,7 @@ import { RouterLink, RouterView, useRoute } from 'vue-router';
 
 import HelperHeader from '@/components/HelperHeader.vue';
 import HelperPostList from '@/components/HelperPostList.vue';
+import HelperPostDetail from '@/components/HelperPostDetail.vue';
 
 
 </script>

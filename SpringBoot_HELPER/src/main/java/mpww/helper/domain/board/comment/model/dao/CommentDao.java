@@ -8,7 +8,7 @@ import java.util.List;
 
 @Component
 public interface CommentDao {
-    int addComment(CommentDto comment);
+    void addComment(CommentDto comment);
     int removeComment(int seq);
     int updateComment(CommentDto comment);
 

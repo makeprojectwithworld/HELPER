@@ -6,6 +6,7 @@ import HelperLogin from '@/components/HelperLogin.vue'
 import HelperSignUp from '@/components/HelperSignUp.vue'
 import HelperPostDetail from '@/components/HelperPostDetail.vue'
 import HelperPostWrite from '@/components/HelperPostWrite.vue'
+import HelperPostList from '@/components/HelperPostList.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,7 +21,12 @@ const router = createRouter({
       name: 'home',
       component: HelperHome,
       children: [
-      
+        {
+          path: '',
+          name: 'boardList',
+          component: HelperPostList
+
+        },
         {
           path: ':seq',
           name: 'detail',

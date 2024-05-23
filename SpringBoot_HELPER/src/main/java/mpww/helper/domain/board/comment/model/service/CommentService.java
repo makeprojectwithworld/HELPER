@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface CommentService {
     int removeComment(int seq);
-    int addComment(CommentDto comment);
+    void addComment(CommentDto comment, String userNickname, String gymName);
     int updateComment(CommentDto comment);
 
     List<CommentDto> SelectAll(int boardSeq);
