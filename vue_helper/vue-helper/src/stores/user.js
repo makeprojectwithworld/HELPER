@@ -8,12 +8,13 @@ const REST_API = 'http://localhost:8080/userapi'
 export const useCounterStore = defineStore('counter', () => {
   const loginUserId = ref(null)
   const accessToken = ref('')
+ 
   const userLogin = function (id,password) {
-    axios.post(`${REST_API}/login`,{
-      id: id,
-      password: password
-    },
-  )
+      axios.post(`${REST_API}/login`,{
+        id: id,
+        password: password
+      },
+    )
     .then((res) => {
       console.log("로그인 성공")
       alert("로그인 성공")
@@ -22,7 +23,7 @@ export const useCounterStore = defineStore('counter', () => {
        // 응답 데이터 구조 확인
        if (res.data && res.data.user && res.data.user.accessToken) {
         const token = res.data.user.accessToken
-        sessionStorage.setItem('access-token', token)
+        sessionStorage.setItem('accessToken', token)
 
         accessToken.value = token
         const tokenParts = token.split('.')
@@ -128,7 +129,7 @@ export const useCounterStore = defineStore('counter', () => {
 
   
   return{
-    userLogin, loginUserId, sendEmailVerificationCode, verfiyNumberCode, checkIdIsDuplicated, signUpHelper
+    accessToken,userLogin, loginUserId, sendEmailVerificationCode, verfiyNumberCode, checkIdIsDuplicated, signUpHelper
   }
 
 })

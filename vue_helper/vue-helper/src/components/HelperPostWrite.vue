@@ -3,48 +3,41 @@
   <div class="post-form">
     <div class="form-group">
       <label for="title">제목</label>
-      <input type="text" id="title" v-model="form.title" placeholder="제목을 입력해주세요." />
+      <input type="text" id="title" v-model="board.title" placeholder="제목을 입력해주세요." />
     </div>
     <div class="form-group">
       <label for="type">기능</label>
-      <select id="type" v-model="form.type">
-        <option disabled value="">보조 or 도움</option>
-        <option>보조</option>
-        <option>도움</option>
+      <select id="type" v-model="board.type">
+        <option value="자유게시판">자유</option>
+        <option valye="보조게시판">보조</option>
+        <option value="도움게시판">도움</option>
       </select>
     </div>
     <div class="form-group">
       <label for="content">내용</label>
-      <textarea id="content" v-model="form.content" placeholder="내용을 입력해주세요."></textarea>
+      <textarea id="content" v-model="board.content" placeholder="내용을 입력해주세요."></textarea>
     </div>
-    <button @click="submitForm">제출</button>
+    <button @click="writeBoard">제출</button>
   </div>
 </template>
 
-<script>
+<script setup>
 import HelperHeader from '@/components/HelperHeader.vue';
+import { useBoardStore } from '@/stores/board';
+import { onMounted } from 'vue';
+import { ref } from 'vue';
 
-export default {
-  name: 'PostForm',
-  components: {
-    HelperHeader
-  },
-  data() {
-    return {
-      form: {
-        title: '',
-        type: '',
-        content: ''
-      }
-    };
-  },
-  methods: {
-    submitForm() {
-      console.log('Form Submitted:', this.form);
-      // Add your form submission logic here
-    }
-  }
-};
+const store = useBoardStore()
+const board =ref({
+  title: '',
+  type: '',
+  content: ''
+})
+
+const writeBoard = () =>{
+  store.writeBoard(board.value.title,board.value.content,board.value.type)
+}
+
 </script>
 
 <style scoped>

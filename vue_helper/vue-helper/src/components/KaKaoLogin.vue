@@ -22,15 +22,20 @@
     </div>
   </template>
   
-  <script>
+<script>
 import router from '@/router';
 
 export default {
   methods: {
     kakaoLogin() {
       window.Kakao.Auth.login({
-        scope: " account_email",
-        success: this.getKakaoAccount,
+        scope: "account_email",
+        success: (authObj) => {
+          this.getKakaoAccount();
+        },
+        fail: (err) => {
+          console.error(err);
+        },
       });
     },
     getKakaoAccount() {

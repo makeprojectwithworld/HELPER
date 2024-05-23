@@ -18,10 +18,11 @@ public class JwtUtil {
     private String SALT = "SSAFY_JavaTrack_Project_Helper_SecretKey";
     private SecretKey secretKey = Keys.hmacShaKeyFor(SALT.getBytes(StandardCharsets.UTF_8));
 
-    public String createToken(String id, String gymName){
+    public String createToken(String id,String userNickname, String gymName){
         Date exp = new Date(System.currentTimeMillis() + 1000*60*60);
         Map<String, Object> claims = new HashMap<>();
         claims.put("id", id);
+        claims.put("userNickname", userNickname);
         claims.put("gymName", gymName);
 
         return Jwts.builder()
@@ -42,7 +43,18 @@ public class JwtUtil {
                 .setSigningKey(secretKey)
                 .build()
                 .parseClaimsJws(token);
+
+        System.out.println("헬스장 이름 가져오기");
         return claims.getBody().get("gymName", String.class);
+    }
+
+    public String getuserNicknameFromToken(String token) {
+        Jws<Claims> claims = Jwts.parser()
+                .setSigningKey(secretKey)
+                .build()
+                .parseClaimsJws(token);
+        System.out.println("닉네임 가져오기");
+        return claims.getBody().get("userNickname", String.class);
     }
 
 

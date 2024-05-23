@@ -1,12 +1,15 @@
 <template>
   <HelperHeader/>
   <div class="main-content">
-    <HelperPostList :searchQuery="searchQuery" />
+    <HelperPostList />
   </div>
 </template>
 
-<script>
+
+<script setup>
+import { RouterLink, RouterView, useRoute } from 'vue-router';
 import HelperHeader from '@/components/HelperHeader.vue';
+
 import HelperPostList from '@/components/HelperPostList.vue';
 
 export default {
