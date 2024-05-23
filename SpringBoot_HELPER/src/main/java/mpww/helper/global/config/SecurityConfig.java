@@ -33,7 +33,6 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final DefaultOAuth2UserService oAuth2UserService;
     private final OAuth2SuccessHandler oAuth2SuccessHandler;
 
@@ -55,7 +54,7 @@ public class SecurityConfig {
                         .requestMatchers("/boardapi/**").permitAll()
                         .requestMatchers("/commentapi/**").permitAll()
                         .requestMatchers("/userapi/**").permitAll()
-//                        .anyRequest().authenticated()
+
                 )
                 .oauth2Login(oauth2 -> oauth2
                         .redirectionEndpoint(endpoint -> endpoint.baseUri("/oauth2/callback/*"))
@@ -65,9 +64,8 @@ public class SecurityConfig {
                 .exceptionHandling(exceptionHandling -> exceptionHandling
                         .authenticationEntryPoint(new FailedAuthenticationEntryPoint())
                 );
-//                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
-        System.out.println(13224334);
+
 
         return httpSecurity.build();
     }
@@ -81,7 +79,6 @@ public class SecurityConfig {
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", corsConfiguration);
-        System.out.println("cores");
         return source;
     }
 
@@ -93,7 +90,6 @@ public class SecurityConfig {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             response.getWriter().write("{\"code\": \"NP\", \"message\": \"No Permission.\"}");
 
-            System.out.println("commence");
         }
     }
 
