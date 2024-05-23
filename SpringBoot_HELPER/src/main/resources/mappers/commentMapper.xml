@@ -6,8 +6,8 @@
 <mapper namespace="mpww.helper.domain.board.comment.model.dao.CommentDao">
 
 <insert id="addComment" parameterType="CommentDto">
-    INSERT INTO comment (board_seq,user_nickname, gym_name, content)
-    VALUES (#{boardSeq},#{userNickname}, #{gymName}, #{content})
+    INSERT INTO comment (board_seq,user_nickname, gym_name, content,regist_date)
+    VALUES (#{boardSeq},#{userNickname}, #{gymName}, #{content}, #{registDate})
 </insert>
 
     <delete id="removeComment" parameterType="int">

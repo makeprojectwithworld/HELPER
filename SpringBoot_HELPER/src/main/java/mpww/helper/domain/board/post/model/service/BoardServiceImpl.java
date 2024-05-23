@@ -48,12 +48,11 @@ public class BoardServiceImpl implements  BoardService {
         board.setGymName(GymName);
 
         Date nowDate = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy년 MM월 dd일");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");
         //원하는 데이터 포맷 지정
         String strNowDate = simpleDateFormat.format(nowDate);
         //지정한 포맷으로 변환
         board.setRegistDate(strNowDate);
-        System.out.println(strNowDate);
         boardDao.writeBoard(board);
     }
 

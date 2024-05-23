@@ -12,4 +12,5 @@ public class CommentDto {
     private String userNickname;
     private String gymName;
     private String content;
+    private String registDate;
 }
