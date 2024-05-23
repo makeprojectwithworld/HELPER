@@ -1,4 +1,5 @@
 <template>
+  <HelperHeader/>
   <div class="post-form">
     <div class="form-group">
       <label for="title">제목</label>
@@ -21,6 +22,7 @@
 </template>
 
 <script setup>
+import HelperHeader from '@/components/HelperHeader.vue';
 import { useBoardStore } from '@/stores/board';
 import { onMounted } from 'vue';
 import { ref } from 'vue';
@@ -40,7 +42,7 @@ const writeBoard = () =>{
 
 <style scoped>
 .post-form {
-  max-width: 600px;
+  max-width: 1200px;
   margin: 20px auto;
   padding: 20px;
   border: 1px solid #ddd;
