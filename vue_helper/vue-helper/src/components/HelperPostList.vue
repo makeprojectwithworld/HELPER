@@ -15,13 +15,14 @@
       </div>
     </div>
   </div>
+
 </template>
 
 <script setup>
 
 import { useBoardStore } from '@/stores/board';
 import { onMounted } from 'vue';
-import { RouterLink } from 'vue-router';
+import { RouterLink, RouterView } from 'vue-router';
 
 
 const store = useBoardStore()

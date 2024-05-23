@@ -69,12 +69,10 @@ public class BoardController {
         try {
             // 토큰에서 유저 정보 추출
             token = token.replace("Bearer ", "");
-            System.out.println("토큰 : " + token);
 
             String userNickname = jwtUtil.getuserNicknameFromToken(token);
             String gymName = jwtUtil.getGymNameFromToken(token);
             boardService.writeBoard(board, userNickname, gymName);
-            System.out.println("서비스 후");
             return ResponseEntity.ok().body("게시글 작성이 완료되었습니다");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("게시글 작성에 실패했습니다");
