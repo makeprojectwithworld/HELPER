@@ -1,5 +1,6 @@
 <template>
-    <div>
+  <div>
+    <div style="display: flex; align-items: center;">
       <a id="custom-login-btn" @click="kakaoLogin()">
         <img
           src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
@@ -7,21 +8,17 @@
           alt="카카오 로그인 버튼"
         />
       </a>
-      <div>
-        <a id ="custom-login-btn" @click ="naverLogin">
-            <img
-            src="@/assets/btnW_완성형.png"
-            width="170"
-            alt="네이버 로그인 버튼"
-            />
-    
-        </a>
+      <a id="custom-login-btn" class="naver-button" @click="naverLogin">
+        <img
+          src="@/assets/btnW_완성형.png"
+          width="170"
+          alt="네이버 로그인 버튼"
+        />
+      </a>
     </div>
-      
-      <!-- <div @click="kakaoLogout()">로그아웃</div> -->
-    </div>
-  </template>
-  
+  </div>
+</template>
+
 <script>
 import router from '@/router';
 
@@ -65,6 +62,9 @@ export default {
     },
   },
 };
-
-
-  </script>
+</script>
+<style>
+  .naver-button {
+    margin-left: 3%;
+  }
+</style>

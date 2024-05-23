@@ -20,7 +20,7 @@
         <div class="login-forgot">
           <a class="login-forgot-link" href="#">비밀번호를 잊으셨나요?</a>
         </div>
-        <button @click = "login" >로그인</button>
+        <button class="button" @click = "login" >로그인</button>
         <div>
           <KaKaoLogin />
         </div>
@@ -80,12 +80,24 @@
     background-color: #2c2c2c;
     border: none;
     color: #ffffff;
-    display: block;
+    display: flex;
     font-size: 18px;
     font-weight: 700;
     margin: 24px 0;
     padding: 16px;
     width: 100%;
+  }
+
+  .button {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 24px auto;
+    padding: 16px;
+    width: calc(50% - 5px);
+    display: flex;
+    text-align: center;
+    border-radius: 10px;
+    justify-content: center;
   }
 
   * {

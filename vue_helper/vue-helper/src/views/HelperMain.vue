@@ -33,8 +33,7 @@
           </div>
           <div class="stat-info">
             <div class="stat-title">HELPER 인원</div>
-            <!-- <div class="stat-value">{{ data.college_students.toLocaleString() }}1111만</div> -->
-            <div class="stat-value">11111만</div>
+            <div class="stat-value">50만</div>
           </div>
         </div>
         <div class="info__item">
@@ -43,7 +42,7 @@
           </div>
           <div class="stat-info">
             <div class="stat-title">제휴 헬스장</div>
-            <!-- <div class="stat-value">{{ data.created_timetables.toLocaleString() }}1111만</div> -->
+            <div class="stat-value">5만</div>
           </div>
         </div>
         <div class="info__item">
@@ -52,7 +51,7 @@
           </div>
           <div class="stat-info">
             <div class="stat-title">성사된 도움</div>
-            <!-- <div class="stat-value">{{ data.lectures_reviews.toLocaleString() }}만</div> -->
+            <div class="stat-value">30만</div>
           </div>
         </div>
         <div class="info__item">
@@ -61,10 +60,13 @@
           </div>
           <div class="stat-info">
             <div class="stat-title">작성된 게시물</div>
-            <!-- <div class="stat-value">{{ data.written_posts.toLocaleString() }}만</div> -->
+            <div class="stat-value">100만</div>
           </div>
         </div>
       </div>
+      <br>
+      <br>
+      <img src="@/assets/HelperMain_Img/main_back.png" alt="main_back">
     </div>
   </div>
 </template>
