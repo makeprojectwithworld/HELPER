@@ -1,32 +1,17 @@
 <template>
-  <div class="home">
-    <div class="header">
-      <div class="logo">
-        <span>HELPER</span>
-      </div>
-      <nav class="nav-links">
-        <span class="gym"> 바이젝월드스튜디오</span>
-        <a href="#" class="nav-link">자유</a>
-        <a href="#" class="nav-link">보조</a>
-        <RouterLink :to="{name: 'mypage'}" class="nav-link" >내 정보</RouterLink>
-      </nav>
-      <div class="search-bar">
-        <input type="text" placeholder="관심있는 내용을 검색해보세요!" v-model="searchQuery" @input="onSearch" />
-      </div>
-      <RouterLink :to="{name: 'postwrite'}" class="write-button" >글쓰기</RouterLink>
-    </div>
+  <header>
+    <HelperHeader />
+  </header>
+  <HelperPostList />
 
-    <div class="main-content">
-      <HelperPostList />
-
-    </div>
-  </div>
+  
 </template>
 
 <script setup>
 import { RouterLink, RouterView, useRoute } from 'vue-router';
-import HelperPostList from '@/components/HelperPostList.vue';
 
+import HelperHeader from '@/components/HelperHeader.vue';
+import HelperPostList from '@/components/HelperPostList.vue';
 
 
 </script>

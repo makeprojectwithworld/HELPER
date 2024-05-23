@@ -10,7 +10,7 @@
       </div>
       <div class="gym-search">
         <h3>헬스장 둘러보기</h3>
-        <input type="text" v-model="search" placeholder="헬스장 검색" @input="filterList" />
+        <input type="text" placeholder="헬스장 검색" @input="filterList" />
         <ul>
           <li v-for="gym in store.gymList" :key="gym.name">
             <RouterLink :to="`/${gym.domainName}`">{{ gym.name }}</RouterLink>
