@@ -43,6 +43,8 @@ public class JwtUtil {
                 .setSigningKey(secretKey)
                 .build()
                 .parseClaimsJws(token);
+
+        System.out.println("헬스장 이름 가져오기");
         return claims.getBody().get("gymName", String.class);
     }
 
@@ -51,6 +53,7 @@ public class JwtUtil {
                 .setSigningKey(secretKey)
                 .build()
                 .parseClaimsJws(token);
+        System.out.println("닉네임 가져오기");
         return claims.getBody().get("userNickname", String.class);
     }
 

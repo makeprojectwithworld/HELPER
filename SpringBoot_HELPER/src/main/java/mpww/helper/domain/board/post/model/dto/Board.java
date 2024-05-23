@@ -11,7 +11,7 @@ public class Board {
     private int seq;
     private String title;
     private String content;
-    private Date registDate;
+    private String registDate;
     private int likes;
     private int viewCnt;
     private String userNickname;

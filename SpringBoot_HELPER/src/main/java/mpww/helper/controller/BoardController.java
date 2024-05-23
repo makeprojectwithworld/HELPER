@@ -65,17 +65,16 @@ public class BoardController {
     @Operation(summary = "게시글 작성하기", description = "새로운 게시글을 작성합니다")
     @PostMapping("/board")
     public ResponseEntity<?> create(@RequestBody Board board, @RequestHeader("Authorization") String token){
-        System.out.println(133434);
+
         try {
             // 토큰에서 유저 정보 추출
             token = token.replace("Bearer ", "");
-            System.out.println(token);
+            System.out.println("토큰 : " + token);
 
-            System.out.println(board.toString());
             String userNickname = jwtUtil.getuserNicknameFromToken(token);
             String gymName = jwtUtil.getGymNameFromToken(token);
-
             boardService.writeBoard(board, userNickname, gymName);
+            System.out.println("서비스 후");
             return ResponseEntity.ok().body("게시글 작성이 완료되었습니다");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("게시글 작성에 실패했습니다");
