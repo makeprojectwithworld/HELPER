@@ -5,7 +5,7 @@
         <RouterLink :to="{ name: 'home' }" class="gohome"><span class="highlight-text">HELPER</span></RouterLink>
       </div>
       <nav class="nav-links">
-        <span class="gym"> 바이젝월드스튜디오</span>
+        <span class="gym"> SSAFY GYM </span>
         <a href="#" class="nav-link">보조</a>
         <RouterLink :to="{name: 'mypage'}" class="nav-link" >내 정보</RouterLink>
       </nav>
@@ -20,7 +20,6 @@
 
 <script setup>
 import { RouterLink, RouterView, useRoute } from 'vue-router';
-import HelperPostList from '@/components/HelperPostList.vue';
 </script>
 
 <style scoped>

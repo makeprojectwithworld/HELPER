@@ -1,8 +1,6 @@
 <template>
-  <header>
-    <HelperHeader />
-  </header>
-
+  <HelperHeader />
+  <HelperPostList />
   <RouterView/>
 </template>
 

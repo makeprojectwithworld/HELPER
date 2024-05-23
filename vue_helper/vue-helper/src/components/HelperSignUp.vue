@@ -125,7 +125,7 @@
   .body-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: 100vh;
     overflow-y: auto; /* 화면이 짤리지 않도록 스크롤바 추가 */
   }
@@ -152,13 +152,25 @@
     padding: 16px 24px;
     width: 100%;
   }
+
   .email-verify-btn{
     width: 80%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
   }
+
   .email-send-btn{
     width: 80%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
   }
+
   .id-verify-btn{
+    display: flex;
+    text-align: center;
+    justify-content: center;
     width: 80%;
   }
 

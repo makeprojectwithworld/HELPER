@@ -17,7 +17,7 @@
             <span>도움 점수</span>
             <span>{{ user.helpScore }}</span>
           </div>
-          <span class="gym">바이젝 월드 스튜디오</span>
+          <span class="gym">SSAFY GYM</span>
         </div>
       </div>
     </div>
@@ -65,9 +65,9 @@ export default {
   data() {
     return {
       user: {
-        nickname: '닉네임',
+        nickname: 'SSAFY',
         assistScore: 94,
-        helpScore: 80
+        helpScore: 100
       }
     };
   },
@@ -192,6 +192,7 @@ export default {
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+  border-radius: 0px;
 }
 
 .profile-info {
@@ -205,6 +206,7 @@ export default {
   font-size: 36px;
   margin-right: 20px;
   flex-shrink: 0; /* Prevent nickname from shrinking */
+  color: #4e4e4e;
 }
 
 .profile-stats {
@@ -232,6 +234,7 @@ export default {
   border-bottom: 1px solid #ddd;
   padding-bottom: 20px;
   margin-bottom: 20px;
+  border-radius: 0px;
 }
 
 .exercise {
