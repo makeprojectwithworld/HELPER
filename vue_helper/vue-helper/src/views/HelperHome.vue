@@ -8,12 +8,12 @@
         <span class="gym"> 바이젝월드스튜디오</span>
         <a href="#" class="nav-link">자유</a>
         <a href="#" class="nav-link">보조</a>
-        <a href="#" class="nav-link">내 정보</a>
+        <RouterLink :to="{name: 'mypage'}" class="nav-link" >내 정보</RouterLink>
       </nav>
       <div class="search-bar">
         <input type="text" placeholder="관심있는 내용을 검색해보세요!" v-model="searchQuery" @input="onSearch" />
       </div>
-      <button class="write-button">글쓰기</button>
+      <RouterLink :to="{name: 'postwrite'}" class="write-button" >글쓰기</RouterLink>
     </div>
 
     <div class="main-content">
@@ -112,6 +112,8 @@ import HelperPostList from '@/components/HelperPostList.vue';
   cursor: pointer;
   margin-right: 10px;
   width: 10%;
+  text-decoration: none;
+  text-align: center;
 }
 
 .main-content {

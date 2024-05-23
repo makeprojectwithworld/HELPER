@@ -1,5 +1,9 @@
 <template>
   <div class="my-page">
+    <div class="logo">
+      <RouterLink :to="{ name: 'home' }" class="gohome"><span class="highlight-text">HELPER</span></RouterLink>
+    </div>
+
     <div class="profile-header">
       <div class="profile-info">
         <h1>{{ user.nickname }}</h1>
@@ -71,8 +75,14 @@ export default {
   mounted() {
     this.renderHeatmap();
   },
+  beforeDestroy() {
+    d3.select('#heatmap').selectAll('*').remove();
+  },
   methods: {
     renderHeatmap() {
+      // 기존 SVG 요소를 제거합니다.
+      d3.select('#heatmap').selectAll('*').remove();
+
       const data = this.generateSampleData(); // Replace this with your actual data source
       const width = 800;
       const height = 150;
@@ -112,7 +122,7 @@ export default {
         .attr('text-anchor', 'middle')
         .text(d => d);
 
-      // Add day labels on the left
+      // Add day labels on the left (only once)
       const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
       svg.selectAll('.day-label')
         .data(days)
@@ -125,7 +135,6 @@ export default {
         .text(d => d);
     },
     generateSampleData() {
-      const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
       const data = [];
       for (let week = 0; week < 52; week++) {
         for (let day = 0; day < 7; day++) {
@@ -152,6 +161,22 @@ export default {
   background: white;
   border: 1px solid #ddd;
   border-radius: 5px;
+}
+
+.logo {
+  display: inline;
+}
+
+.highlight-text {
+  background: linear-gradient(to top, aquamarine 10%, transparent 30%);
+  font-size: 36px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #4e4e4e;
+}
+
+.gohome {
+  text-decoration: none;
 }
 
 .gym {
