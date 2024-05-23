@@ -18,12 +18,15 @@ const router = createRouter({
     {
       path: '/home',
       name: 'home',
-      component: HelperHome
-    },
-    {
-      path: '/detail',
-      name: 'detail',
-      component: HelperPostDetail
+      component: HelperHome,
+      children: [
+      
+        {
+          path: ':seq',
+          name: 'detail',
+          component: HelperPostDetail
+        }
+      ]
     },
     {
       path: '/login',

@@ -10,15 +10,17 @@
         <RouterLink :to="{name: 'mypage'}" class="nav-link" >내 정보</RouterLink>
       </nav>
       <div class="search-bar">
-        <input type="text" placeholder="관심있는 내용을 검색해보세요!" v-model="searchQuery" @input="onSearch" />
+        <input type="text" placeholder="관심있는 내용을 검색해보세요!" />
       </div>
       <RouterLink :to="{name: 'postwrite'}" class="write-button" >글쓰기</RouterLink>
     </div>
   </div>
+
 </template>
 
-<script>
+<script setup>
 import { RouterLink, RouterView, useRoute } from 'vue-router';
+import HelperPostList from '@/components/HelperPostList.vue';
 </script>
 
 <style scoped>

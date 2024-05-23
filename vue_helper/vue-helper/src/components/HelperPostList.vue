@@ -1,8 +1,8 @@
 <template>
   <div class="post-list">
-    <div class="post-item" v-for="post in store.boardList" :key="post.seq">
+    <div class="post-item" v-for="post in store.postList" :key="post.seq">
       <div class="post-header">
-        <RouterLink :to="{name: 'detail'}"  class="post-title">{{ post.title }}</RouterLink>
+        <RouterLink :to="`/home/${post.seq}`" class="post-title">{{ post.title }}</RouterLink>
       </div>
       <div class="post-content">
         <p>{{ post.content }}</p>
@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import HelperPostItem from '@/components/HelperPostItem.vue'; // Adjust path if necessary
+
 import { useBoardStore } from '@/stores/board';
 import { onMounted } from 'vue';
 import { RouterLink } from 'vue-router';

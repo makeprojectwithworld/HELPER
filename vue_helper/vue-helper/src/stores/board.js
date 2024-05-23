@@ -35,7 +35,7 @@ export const useBoardStore = defineStore('board',() => {
     })
   }
   
-  const board = ref('')
+  const post = ref('')
   const selectBoard = function(seq) {
     axios.get(`${REST_API}/board/${seq}`,{
       headers: {
@@ -43,10 +43,10 @@ export const useBoardStore = defineStore('board',() => {
       }
     })
       .then((response) => {
-        board.value = response.data
+        post.value = response.data
     })
   }
-  const boardList = ref({})
+  const postList = ref({})
   const selectAllBoard = function(){
     axios.get(`${REST_API}/allBoard`,{
       headers: {
@@ -54,11 +54,11 @@ export const useBoardStore = defineStore('board',() => {
       }
     })
     .then((res) =>{
-      boardList.value = res.data
+      postList.value = res.data
       // console.log(boardList)
     })
   }
 
-  return{ selectBoard, writeBoard, selectAllBoard, boardList, accessToken}
+  return{ selectBoard, writeBoard, selectAllBoard, postList, accessToken, post}
 
 })
