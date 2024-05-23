@@ -25,8 +25,8 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         CustomOauth2User oAuth2User = (CustomOauth2User) authentication.getPrincipal();
 
         String userId = oAuth2User.getName();
-        String token = jwtUtil.createToken(userId,userId);
-
+        String token = jwtUtil.createToken(userId,userId,userId);
+//소셜로그인 한 사람들도 gymname과 닉네임 지정해야함
         response.sendRedirect("http://local:8080/auth/oauth-response/" + token + "/3600");
 
     }

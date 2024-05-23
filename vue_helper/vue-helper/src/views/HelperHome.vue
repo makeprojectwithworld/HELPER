@@ -17,13 +17,13 @@
     </div>
 
     <div class="main-content">
-      <HelperPostList :searchQuery="searchQuery" />
-      <router-view></router-view>
+      <HelperPostList />
+      
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
 import { RouterLink, RouterView, useRoute } from 'vue-router';
 import HelperPostList from '@/components/HelperPostList.vue';
 

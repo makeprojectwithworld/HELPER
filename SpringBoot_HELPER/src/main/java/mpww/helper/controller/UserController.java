@@ -41,9 +41,9 @@ public class UserController {
         User loginUser = userService.login(user);
 
         if(loginUser != null){
-//            String token = jwt.createToken(user.getId());
+            String token = jwt.createToken(user.getId(),user.getNickname(),user.getGymName());
             Map<String, Object> map = new HashMap<>();
-//            map.put("access-token",token);
+            map.put("access-token",token);
             map.put("user", loginUser);
             return new ResponseEntity<Map<String,Object>>(map, HttpStatus.OK);
         }

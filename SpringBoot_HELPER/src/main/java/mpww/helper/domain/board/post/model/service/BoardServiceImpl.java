@@ -9,6 +9,8 @@ import mpww.helper.domain.board.post.model.dto.SearchCondition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -40,8 +42,19 @@ public class BoardServiceImpl implements  BoardService {
     }
 
     @Override
-    public int writeBoard(Board board) {
-        return boardDao.writeBoard(board);
+    public void writeBoard(Board board, String userNickname, String GymName) {
+
+        board.setUserNickname(userNickname);
+        board.setGymName(GymName);
+
+        Date nowDate = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy년 MM월 dd일");
+        //원하는 데이터 포맷 지정
+        String strNowDate = simpleDateFormat.format(nowDate);
+        //지정한 포맷으로 변환
+        board.setRegistDate(strNowDate);
+        System.out.println(strNowDate);
+        boardDao.writeBoard(board);
     }
 
     @Override

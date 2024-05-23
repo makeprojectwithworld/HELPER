@@ -24,28 +24,29 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class JwtAuthenticationFilter extends OncePerRequestFilter {
+public class JwtAuthenticationFilter {
 
     private final UserDao userDao;
     private final JwtUtil jwtUtil;
 
-    @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-
             try {
 
                 //토큰이 있는 지 검사
                 String token = parseBearerToken(request);
+                System.out.println(1);
                 if(token == null){
                     filterChain.doFilter(request,response);
+                    System.out.println(2);
                     return;
                 }
 
                 //유효성 검사
                 String userId = String.valueOf(jwtUtil.validate(token));
-
+                System.out.println(3);
                 if(userId == null){
                     filterChain.doFilter(request,response);
+                    System.out.println(4);
                     return;
                 }
 
@@ -62,22 +63,30 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                  */
                 List<GrantedAuthority> authorities = new ArrayList<>();
                 authorities.add(new SimpleGrantedAuthority("ROLE_USER")); //ROLE_USER, ROLE_ADMIN
+                System.out.println(5);
 
                 //empty context 만들기
                 SecurityContext securityContext = SecurityContextHolder.createEmptyContext();
+                System.out.println(6);
                 //토큰 만들고 접근주체에 대한 정보를 넘기고 비밀번호 null, 인증 권한 추가로 넘기기
                 AbstractAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userId, null, authorities);
+                System.out.println(7);
 
                 authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                System.out.println(8);
 
                 //SecurityContext에 생성한 토큰을 등록
                 securityContext.setAuthentication(authenticationToken);
+                System.out.println(9);
                 //현재 사용자가 인증되었음을 확인 만든 context 등록
                 SecurityContextHolder.setContext(securityContext);
+                System.out.println(10);
 
 
             }catch (Exception e){
                 e.printStackTrace();
+
+                System.out.println("error");
             }
     }
 
@@ -96,6 +105,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if(!isBearer) return null;
 
         String token = authorization.substring(7);
+
+        System.out.println("parse");
         return token;
     }
 }
