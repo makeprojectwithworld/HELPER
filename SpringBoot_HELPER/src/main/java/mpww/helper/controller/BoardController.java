@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.Getter;
 import mpww.helper.domain.board.post.model.dto.Board;
 import mpww.helper.domain.board.post.model.service.BoardService;
+import mpww.helper.global.util.JwtUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,14 +19,15 @@ import java.util.List;
 public class BoardController {
 
     private final BoardService boardService;
+    private final JwtUtil jwtUtil;
 
-    public BoardController(BoardService boardService) {
+    public BoardController(BoardService boardService, JwtUtil jwtUtil) {
         this.boardService = boardService;
+        this.jwtUtil = jwtUtil;
     }
 
-
     @Operation(summary = "해당 헬스장 전체 게시글 조회", description = " ㅇㅇ헬스장의 전체 게시글을 조회합니다")
-    @GetMapping("/board")
+    @GetMapping("/allBoard")
     public ResponseEntity<?> selectAll(){
         List<Board> boardList = boardService.selectAll();
 
@@ -62,10 +64,22 @@ public class BoardController {
 
     @Operation(summary = "게시글 작성하기", description = "새로운 게시글을 작성합니다")
     @PostMapping("/board")
-    public ResponseEntity<?> create(@RequestBody Board board){
-        int result = boardService.writeBoard(board);
+    public ResponseEntity<?> create(@RequestBody Board board, @RequestHeader("Authorization") String token){
+        System.out.println(133434);
+        try {
+            // 토큰에서 유저 정보 추출
+            token = token.replace("Bearer ", "");
+            System.out.println(token);
 
-        return new ResponseEntity<>(result, result == 1 ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
+            System.out.println(board.toString());
+            String userNickname = jwtUtil.getuserNicknameFromToken(token);
+            String gymName = jwtUtil.getGymNameFromToken(token);
+
+            boardService.writeBoard(board, userNickname, gymName);
+            return ResponseEntity.ok().body("게시글 작성이 완료되었습니다");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("게시글 작성에 실패했습니다");
+        }
     }
 
 }

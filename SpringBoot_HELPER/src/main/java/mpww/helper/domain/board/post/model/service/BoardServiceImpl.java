@@ -9,6 +9,8 @@ import mpww.helper.domain.board.post.model.dto.SearchCondition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -40,8 +42,13 @@ public class BoardServiceImpl implements  BoardService {
     }
 
     @Override
-    public int writeBoard(Board board) {
-        return boardDao.writeBoard(board);
+    public void writeBoard(Board board, String userNickname, String GymName) {
+        board.setUserNickname(userNickname);
+        board.setGymName(GymName);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        board.setRegistDate(new Date(String.valueOf(formatter)));
+        System.out.println(userNickname);
+        boardDao.writeBoard(board);
     }
 
     @Override

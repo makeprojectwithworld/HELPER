@@ -16,5 +16,6 @@ public class Board {
     private int viewCnt;
     private String userNickname;
     private String gymName;
+    private String type;
 
 }

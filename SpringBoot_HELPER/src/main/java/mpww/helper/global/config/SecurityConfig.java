@@ -4,6 +4,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+//import mpww.helper.global.filter.JwtAuthenticationFilter;
 import mpww.helper.global.filter.JwtAuthenticationFilter;
 import mpww.helper.global.handler.OAuth2SuccessHandler;
 import org.springframework.beans.factory.annotation.Configurable;
@@ -39,7 +40,7 @@ public class SecurityConfig {
 
     @Bean
     protected SecurityFilterChain configure(HttpSecurity httpSecurity) throws Exception {
-
+        System.out.println("configure");
         httpSecurity
                 .cors(cors -> cors
                         .configurationSource(corsConfigurationSource())
@@ -51,10 +52,10 @@ public class SecurityConfig {
                 )
                 .authorizeHttpRequests(request -> request
                         .requestMatchers("/","/**", "/oauth2/**").permitAll()
-                        .requestMatchers("/boardapi/**").hasRole("USER")
-                        .requestMatchers("/commentapi/**").hasRole("USER")
-//                        .requestMatchers("/userapi/**").hasRole("USER")
-                        .anyRequest().authenticated()
+                        .requestMatchers("/boardapi/**").permitAll()
+                        .requestMatchers("/commentapi/**").permitAll()
+                        .requestMatchers("/userapi/**").permitAll()
+//                        .anyRequest().authenticated()
                 )
                 .oauth2Login(oauth2 -> oauth2
                         .redirectionEndpoint(endpoint -> endpoint.baseUri("/oauth2/callback/*"))
@@ -66,6 +67,7 @@ public class SecurityConfig {
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
+        System.out.println(13224334);
 
         return httpSecurity.build();
     }
@@ -79,7 +81,7 @@ public class SecurityConfig {
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", corsConfiguration);
-
+        System.out.println("cores");
         return source;
     }
 
@@ -90,6 +92,8 @@ public class SecurityConfig {
             response.setContentType("application/json");
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             response.getWriter().write("{\"code\": \"NP\", \"message\": \"No Permission.\"}");
+
+            System.out.println("commence");
         }
     }
 

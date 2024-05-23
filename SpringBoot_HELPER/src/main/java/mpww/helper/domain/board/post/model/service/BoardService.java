@@ -10,7 +10,7 @@ public interface BoardService {
     List<Board> selectAll();
     List<Board> searchByCondition(SearchCondition con);
     int updateBoard(Board updateBoard);
-    int writeBoard(Board board);
+    void writeBoard(Board board, String userNickname, String gymName);
 
     Board getBoard(int id);
 }

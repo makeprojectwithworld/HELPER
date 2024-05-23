@@ -10,7 +10,7 @@ import java.util.List;
 public interface BoardDao {
     List<Board> selectAll();
 
-    int writeBoard(Board board);
+    void writeBoard(Board board);
 
     List<Board> searchByCondition(SearchCondition con);
 
