@@ -1,4 +1,5 @@
-![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/b97c6ccd-5107-48b7-b471-d5395b7a0120)
+![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/453ec828-d9ac-455d-85a8-8c994253fdc9)
+
 
 나만의 헬스 보조 메이트 찾기 서비스🏋️
 
