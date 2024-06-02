@@ -57,16 +57,17 @@
 ### Server Architecture
 
 
-## 구현 화면
+
+## 구현 화면 📌
 ![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/d82ccbc5-dd01-4622-a953-d045929cca79)
+
+- 원하는 헬스장을 지정해서 접속하면 해당 게시판으로 접속할 수 있어요
 
 ### 메일 인증 기능
 
-![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/bfec833d-148d-4ca0-94e1-557236d7437e) ![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/9da1e6af-d4a0-4514-83c5-63327e14dd51)
+<img width="631" alt="image" src="https://github.com/makeprojectwithworld/HELPER/assets/156163390/8233c23d-04a8-4ce6-b572-ee982d5ce38b">
 
 
-
-원하는 헬스장을 지정해서 접속하면 해당 게시판으로 접속할 수 있어요
 
 
 
