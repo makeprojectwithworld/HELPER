@@ -1,9 +1,8 @@
-<p align="center">
+
 ![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/453ec828-d9ac-455d-85a8-8c994253fdc9)
 
 나만의 헬스 보조 메이트 찾기 서비스🏋️
 
-</p>
 
 ## 프로젝트 설명
 
