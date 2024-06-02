@@ -1,7 +1,9 @@
+<p align="center">
 ![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/453ec828-d9ac-455d-85a8-8c994253fdc9)
 
-
 나만의 헬스 보조 메이트 찾기 서비스🏋️
+
+</p>
 
 ## 프로젝트 설명
 
@@ -32,7 +34,8 @@
 3. 나만의 운동 포트풀리오 제작
    ➡︎ 운동 종목의 무게들을 기록하고, 운동한 날짜를 한 눈에 볼 수 있어요 🧘‍♂️
 
-![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/4f7eca5d-476d-421a-9a68-a81053ba9b00)
+![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/030737a1-91cd-4f7d-bbc9-218ab88d65a6)
+
 
 ## 기술스택 ⛏️
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=white" /><img src="https://img.shields.io/badge/vue.js-4FC08D?style=flat-square&logo=vue.js&logoColor=white" /><img src="https://img.shields.io/badge/mysql-4479A1?style=flat-square&logo=mysql&logoColor=white" /><img src="https://img.shields.io/badge/springboot-6DB33F?style=flat-square&logo=SpringBoot&logoColor=white" /><img src="https://img.shields.io/badge/node.js-5FA04E?style=flat-square&logo=node.js&logoColor=white" /><img src="https://img.shields.io/badge/axios-5A29E4?style=flat-square&logo=axios&logoColor=white" /> <img src="https://img.shields.io/badge/MyBatis-000000?style=flat-square&logo=MyBatis&logoColor=white">  <img src="https://img.shields.io/badge/Java-007396?style=flat-square&logo=Java&logoColor=white"> <img src="https://img.shields.io/badge/JWT-40AEF0?style=flat-square&logo=JWT&logoColor=white"> <img src="https://img.shields.io/badge/Oauth2-000000?style=flat-square&logo=Oauth2&logoColor=white"> 
