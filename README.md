@@ -62,8 +62,7 @@
 
 ### 메일 인증 기능
 
-![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/bfec833d-148d-4ca0-94e1-557236d7437e)
-![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/9da1e6af-d4a0-4514-83c5-63327e14dd51)
+![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/bfec833d-148d-4ca0-94e1-557236d7437e) ![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/9da1e6af-d4a0-4514-83c5-63327e14dd51)
 
 
 
