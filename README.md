@@ -54,7 +54,8 @@
 
 
 
-### 아키텍쳐
+### Server Architecture
+
 
 
 
