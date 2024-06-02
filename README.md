@@ -9,16 +9,22 @@
 ### 기획 과정 📌
 
 시장 분석 과정
+
+
 1. 문화체육관광부 -2023 국민생활체육조사
 ![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/109f71f5-f412-49b9-b47f-4da8cd9979d6)
 
 - 성장하는 보디빌딩(헬스) 시장 👉 헬스 관련 서비스 성장성 파악
 
 
+
+
 2. 그룹 운동 서비스 경쟁사 성장 추이
 ![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/a649941e-6237-4a72-b95d-949f6bf8d056)
 
 ➡︎ 그룹 운동(헬스) 서비스 대한 니즈 파악 👁️
+
+
 
 
 ### 주요 서비스
@@ -36,10 +42,15 @@
 ![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/030737a1-91cd-4f7d-bbc9-218ab88d65a6)
 
 
+
 ## 기술스택 ⛏️
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=white" /><img src="https://img.shields.io/badge/vue.js-4FC08D?style=flat-square&logo=vue.js&logoColor=white" /><img src="https://img.shields.io/badge/mysql-4479A1?style=flat-square&logo=mysql&logoColor=white" /><img src="https://img.shields.io/badge/springboot-6DB33F?style=flat-square&logo=SpringBoot&logoColor=white" /><img src="https://img.shields.io/badge/node.js-5FA04E?style=flat-square&logo=node.js&logoColor=white" /><img src="https://img.shields.io/badge/axios-5A29E4?style=flat-square&logo=axios&logoColor=white" /> <img src="https://img.shields.io/badge/MyBatis-000000?style=flat-square&logo=MyBatis&logoColor=white">  <img src="https://img.shields.io/badge/Java-007396?style=flat-square&logo=Java&logoColor=white"> <img src="https://img.shields.io/badge/JWT-40AEF0?style=flat-square&logo=JWT&logoColor=white"> <img src="https://img.shields.io/badge/Oauth2-000000?style=flat-square&logo=Oauth2&logoColor=white"> 
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=white" /><img src="https://img.shields.io/badge/vue.js-4FC08D?style=flat-square&logo=vue.js&logoColor=white" /><img src="https://img.shields.io/badge/mysql-4479A1?style=flat-square&logo=mysql&logoColor=white" /><img src="https://img.shields.io/badge/springboot-6DB33F?style=flat-square&logo=SpringBoot&logoColor=white" /><img src="https://img.shields.io/badge/node.js-5FA04E?style=flat-square&logo=node.js&logoColor=white" /><img src="https://img.shields.io/badge/axios-5A29E4?style=flat-square&logo=axios&logoColor=white" /> <img src="https://img.shields.io/badge/MyBatis-000000?style=flat-square&logo=MyBatis&logoColor=white">  <img src="https://img.shields.io/badge/Java-007396?style=flat-square&logo=Java&logoColor=white"> <img src="https://img.shields.io/badge/JWT-40AEF0?style=flat-square&logo=JWT&logoColor=white"> <img src="https://img.shields.io/badge/Oauth2-000000?style=flat-square&logo=Oauth2&logoColor=white"> <img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white"> 
+
+
 
 해당 기술 사용의 근거🖋️
+
+
 
 ### 아키텍쳐
 
