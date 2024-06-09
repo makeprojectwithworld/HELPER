@@ -73,6 +73,7 @@ public class BoardController {
             String userNickname = jwtUtil.getuserNicknameFromToken(token);
             String gymName = jwtUtil.getGymNameFromToken(token);
             boardService.writeBoard(board, userNickname, gymName);
+
             return ResponseEntity.ok().body("게시글 작성이 완료되었습니다");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("게시글 작성에 실패했습니다");

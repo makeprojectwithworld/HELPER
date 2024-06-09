@@ -8,9 +8,9 @@
     <div class="form-group">
       <label for="type">기능</label>
       <select id="type" v-model="board.type">
-        <option value="자유게시판">자유</option>
-        <option valye="보조게시판">보조</option>
-        <option value="도움게시판">도움</option>
+        <option value="자유">자유</option>
+        <option valye="보조">보조</option>
+        <option value="도움">도움</option>
       </select>
     </div>
     <div class="form-group">

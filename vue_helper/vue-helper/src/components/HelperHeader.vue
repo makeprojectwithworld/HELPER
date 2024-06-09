@@ -5,7 +5,7 @@
         <RouterLink :to="{ name: 'home' }" class="gohome"><span class="highlight-text">HELPER</span></RouterLink>
       </div>
       <nav class="nav-links">
-        <span class="gym"> SSAFY GYM </span>
+        <span class="gym"> 동국스포츠 </span>
         <a href="#" class="nav-link">보조</a>
         <RouterLink :to="{name: 'mypage'}" class="nav-link" >내 정보</RouterLink>
       </nav>

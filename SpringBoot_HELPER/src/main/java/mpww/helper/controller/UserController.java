@@ -41,7 +41,7 @@ public class UserController {
         User loginUser = userService.login(user);
 
         if(loginUser != null){
-            String token = jwt.createToken(user.getId(),user.getNickname(),user.getGymName());
+            String token = jwt.createToken(loginUser.getId(),loginUser.getNickName(),loginUser.getGymName());
             Map<String, Object> map = new HashMap<>();
             map.put("access-token",token);
             map.put("user", loginUser);

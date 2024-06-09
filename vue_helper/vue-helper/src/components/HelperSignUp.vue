@@ -75,7 +75,7 @@
         v-model.trim="gymName"
         >
           <option value="바이젝월드스튜디오">바이젝월드스튜디오</option> <!-- -> 헬스장으로 될 수 있도록 v-for 사용 필요!!! -->
-          <option value="여자">여자</option>
+          <option value="동국스포츠">동국스포츠</option>
         </select>
         <div class="button-container">
           <RouterLink :to="{name: 'main'}" class="button-cancel" >취소</RouterLink>

@@ -6,8 +6,8 @@
 <mapper namespace="mpww.helper.domain.board.post.model.dao.BoardDao">
 
     <insert id="writeBoard" parameterType="Board">
-        INSERT INTO helper.board(title, content,type,user_nickname ,gym_name, regist_date)
-        VALUES (#{title},#{content},#{type}, #{userNickname}, #{gymName}, #{registDate});
+        INSERT INTO helper.board(title,content,type,user_nickname,gym_name,regist_date)
+        VALUES (#{title}, #{content}, #{type}, #{userNickname}, #{gymName}, #{registDate});
     </insert>
 
     <select id="selectAll" >

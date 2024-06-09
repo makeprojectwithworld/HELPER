@@ -34,6 +34,7 @@ export const useBoardStore = defineStore('board',() => {
     .catch((e)=>{
       console.log(e)
       console.log(accessToken.value)
+      alert("게시글 작성 실패")
     })
   }
   
@@ -59,7 +60,7 @@ export const useBoardStore = defineStore('board',() => {
     })
     .then((res) =>{
       postList.value = res.data
-      // console.log(boardList)
+       console.log(postList)
     })
   }
 

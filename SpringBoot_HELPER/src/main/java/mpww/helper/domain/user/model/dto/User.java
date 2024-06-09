@@ -13,7 +13,7 @@ public class User {
     private String id;
 
     private String password;
-    private String nickname;
+    private String nickName;
     @NotBlank
     private String email;
     private String birthDate;

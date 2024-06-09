@@ -43,10 +43,9 @@ public class BoardServiceImpl implements  BoardService {
 
     @Override
     public void writeBoard(Board board, String userNickname, String GymName) {
-
+        System.out.println("오잉");
         board.setUserNickname(userNickname);
         board.setGymName(GymName);
-
         Date nowDate = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");
         //원하는 데이터 포맷 지정
