@@ -79,9 +79,10 @@
 
 ### AOuth ( 소셜 로그인 기능 )
 
-![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/455eef0a-b343-4db0-a286-4cca2ffb19f8)
-
 - 소셜 로그인 기능을 활용하여 로그인 할 수 있어요
+
+![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/648ef461-4a31-43fb-9e10-a3b5a1e29909)
+
 
 ![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/f981b869-f35f-41a2-8c2e-e3e61de107fd)
 
