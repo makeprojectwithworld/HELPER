@@ -54,7 +54,10 @@
 
 
 
-### Server Architecture
+
+
+### ERD Diagram
+![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/a2692d1c-8709-43c1-ad6d-84b97c083742)
 
 
 
@@ -68,12 +71,19 @@
 <img width="631" alt="image" src="https://github.com/makeprojectwithworld/HELPER/assets/156163390/8233c23d-04a8-4ce6-b572-ee982d5ce38b">
 
 ### 게시글, 댓글 기능
+![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/35249e6e-43de-41bb-b81a-b58ae6906362)
+
+
 
 - 게시글과 댓글의 작성 시간과 작성자의 닉네임을 확인할 수 있어요
 
 ### AOuth ( 소셜 로그인 기능 )
 
+![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/455eef0a-b343-4db0-a286-4cca2ffb19f8)
+
 - 소셜 로그인 기능을 활용하여 로그인 할 수 있어요
+
+![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/f981b869-f35f-41a2-8c2e-e3e61de107fd)
 
 
 
