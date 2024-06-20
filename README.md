@@ -87,6 +87,19 @@
 ![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/f981b869-f35f-41a2-8c2e-e3e61de107fd)
 
 
+### Contributor
+<table border ="1">
+   <tr>
+      <th>jihwanByun</th>
+      <th>Hellooosir</th>
+   </tr>
+
+   <tr>
+      <td>서버 개발, 클라이언트와의 연결</td>
+      <td>프론트 구현</td>
+   </tr>
+</table>
+
 
 
 
