@@ -66,16 +66,18 @@
 
 - 원하는 헬스장을 지정해서 접속하면 해당 게시판으로 접속할 수 있어요
 
-### 메일 인증 기능
+### 메일 인증 기능 📧
 
 <img width="631" alt="image" src="https://github.com/makeprojectwithworld/HELPER/assets/156163390/8233c23d-04a8-4ce6-b572-ee982d5ce38b">
 
-### 게시글, 댓글 기능
+### 게시글, 댓글 기능 💻
 ![image](https://github.com/makeprojectwithworld/HELPER/assets/156163390/35249e6e-43de-41bb-b81a-b58ae6906362)
 
 
 
 - 게시글과 댓글의 작성 시간과 작성자의 닉네임을 확인할 수 있어요
+
+
 
 ### AOuth ( 소셜 로그인 기능 )
 
