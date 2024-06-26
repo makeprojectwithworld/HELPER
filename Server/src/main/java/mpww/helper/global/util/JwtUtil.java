@@ -39,7 +39,6 @@ public class JwtUtil {
     }
     // Token에서 gymName 추출
     public String getGymNameFromToken(String token) {
-        System.out.println("헬스장 이름 가져오기");
         Jws<Claims> claims = Jwts.parser()
                 .setSigningKey(secretKey)
                 .build()

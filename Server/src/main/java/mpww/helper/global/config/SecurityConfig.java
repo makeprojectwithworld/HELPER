@@ -39,7 +39,6 @@ public class SecurityConfig {
 
     @Bean
     protected SecurityFilterChain configure(HttpSecurity httpSecurity) throws Exception {
-        System.out.println("configure");
         httpSecurity
                 .cors(cors -> cors
                         .configurationSource(corsConfigurationSource())
